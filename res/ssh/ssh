@@ -1,0 +1,3 @@
+user.mail "dongchangzhang@gmail.com"
+user.name "dongchangzhang"
+ssh-keygen -t rsa -C "dongchangzhang@gmail.com"
