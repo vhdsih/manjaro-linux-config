@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,google-chrome.desktop,visual-studio-code.desktop,jetbrains-clion.desktop,jetbrains-studio.desktop,netease-cloud-music.desktop,pamac-manager.desktop,exo-mail-reader.desktop,exo-web-browser.desktop,wps-office-wpp.desktop,wps-office-wps.desktop
-recent=nemo.desktop,netease-cloud-music.desktop,exo-web-browser.desktop,exo-file-manager.desktop,google-chrome.desktop,org.gnome.Nautilus.desktop,visual-studio-code.desktop,wps-office-wps.desktop,megasync.desktop,vlc.desktop
+recent=virtualbox.desktop,nemo.desktop,xfce4-screenshooter.desktop,exo-terminal-emulator.desktop,visual-studio-code.desktop,htop.desktop,jetbrains-studio.desktop,netease-cloud-music.desktop,exo-web-browser.desktop,exo-file-manager.desktop
 button-title=Applications
 button-icon=/usr/share/icons/whiskermenu-manjaro.svg
 button-single-row=false
