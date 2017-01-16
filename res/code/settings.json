@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "'Monaco', 'Ubuntu Mono derivative Powerline', 'Microsoft YaHei",
+    "editor.fontSize": 16,
+    "python.pythonPath": "python3",
+    "editor.rulers": [80],
+    "window.showFullPath": true,
+    "extensions.autoUpdate": true,
+    "terminal.integrated.fontSize": 16,
+    "guides.normal.width": 5,
+    "guides.active.width": 3
+}
