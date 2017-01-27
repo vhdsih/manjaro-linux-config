@@ -96,3 +96,54 @@ config_vscode() {
     cp $relative_location/res/vscode/* $HOME/.config/Code/User/ 
     print_log "done"
 }
+
+
+
+while getopts 012345678A option
+do
+    case "$option" in
+        0)
+            echo "install applications" 
+            update_system
+            install_software
+            echo "done";;
+
+        1)
+            echo "install Monaco && microsoft yahei fonts"
+            config_font
+            echo "done";;
+        2)
+            echo "config zsh"
+            config_zsh
+            echo "done";;
+        3)
+            echo "config vim"
+            config_vim
+            echo "done";;
+        4)
+            echo "visual studio code"
+            config_vscode
+            echo "done";;
+
+        A)
+            echo "do all"
+            update_system
+            install_software
+            config_font
+            config_vim
+            config_zsh
+            echo "done";;
+
+        \?)
+            echo "------------------------------HELP------------------------------------"
+            echo "----------------------------------------------------------------------"
+            echo "|-0  install applications                                            |"
+            echo "|-1  install monaco && micosoft yahei fonts                          |"
+            echo "|-2  config zsh                                                      |"
+            echo "|-3  config vim                                                      |"
+            echo "|-4  visual studio code                                              |"    
+            echo "|-A  do all for your system, if your system is new one               |"
+            echo "----------------------------------------------------------------------"
+            echo "bye";;
+    esac
+done
