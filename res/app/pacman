@@ -11,6 +11,7 @@ ranger
 google-chrome
 visual-studio-code
 netease-cloud-music
+typora
 megasync
 wps-office
 ttf-wps-fonts
@@ -23,6 +24,8 @@ htop
 clang
 python-pip
 python2-pip
-nemo
 virtualbox
 smplayer
+gcc-multilib
+shutter
+powerline-fonts
