@@ -21,6 +21,26 @@ install_software() {
     $relative_location/res/app/install.sh
     print_log "done"
 }
+# config etc files
+config_etc() {
+    print_log "config etc files"
+    chmod +x $relative_location/res/etc/etc.sh
+    $relative_location/res/etc/etc.sh
+    print_log "done"
+}
+# config ssh for github
+config_ssh() {
+    print_log "config ssh for github..."
+    chmod +x $relative_location/res/ssh/ssh.sh
+    $relative_location/res/ssh/ssh.sh
+    print_log "done"
+}
+# config mirrors list
+config_mirrors() {
+    print_log "config mirrors list"
+    sudo pacman-mirrors -g -c China
+    print_log "done"
+}
 # config vim
 config_vim() {
     print_log "do config for vim..."
@@ -43,7 +63,6 @@ config_vim() {
         mv $HOME/.vim $HOME/.vim.bak
     fi
     # do config
-    
     cp $relative_location/res/vim/.vimrc $HOME/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
@@ -124,14 +143,32 @@ do
             echo "visual studio code"
             config_vscode
             echo "done";;
+        5)
+            echo "ssh for github"
+            config_ssh
+            echo "done";;
+        6)
+            echo "config etc files"
+            config_etc
+            echo "done";;
+
+        7) 
+            echo "config mirrors list"
+            config_mirrors
+            echo "done";;
 
         A)
             echo "do all"
+            config_etc
+            config_mirrors
             update_system
             install_software
             config_font
+            config_monaco
             config_vim
             config_zsh
+            config_vscode
+            config_ssh
             echo "done";;
 
         \?)
@@ -142,6 +179,9 @@ do
             echo "|-2  config zsh                                                      |"
             echo "|-3  config vim                                                      |"
             echo "|-4  visual studio code                                              |"    
+            echo "|-5  ssh for github                                                  |"
+            echo "|-6  config etc files                                                |"
+            echo "|-7  config mirrors list                                             |"
             echo "|-A  do all for your system, if your system is new one               |"
             echo "----------------------------------------------------------------------"
             echo "bye";;
