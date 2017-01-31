@@ -21,7 +21,8 @@ install_software() {
     for app in $(cat $1)
     do
         print_log "STARTING TO INSTALL $app"
-        `$3 $2 -S $app`
+        echo "$3 $2 -S $app"
+        $3 $2 -S $app
         status=$?
         if [ $status = 0 ] 
         then

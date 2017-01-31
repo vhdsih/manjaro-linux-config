@@ -8,10 +8,6 @@ vim
 zsh
 autojump
 ranger
-google-chrome
-visual-studio-code
-netease-cloud-music
-typora
 megasync
 wps-office
 ttf-wps-fonts
@@ -32,7 +28,11 @@ powerline-fonts
 clion
 npm
 go
+x86-input-synaptics
 manjaro-backgrounds
 mlocate
-virtualbox
-
+visual-studio-code
+netease-cloud-music
+typora
+google-chrome
+electronic-wechat-git

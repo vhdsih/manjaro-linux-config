@@ -431,8 +431,8 @@ export PATH=${JAVA_HOME}/bin:$PATH
 export TOMCAT_HOME=/opt/apache-tomcat-9.0.0.M10
 export NDK=/opt/android-ndk-r13b
 # alias
-export CUDA_HOME=/opt/cuda
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
+alias apti='sudo apt install'
+alias aptud='sudo apt update'
+alias aptug='sudo apt upgrade'
+alias aptf='sudo apt -f install'
 

@@ -110,7 +110,7 @@ do
 
         1)
             echo "install Monaco && microsoft yahei fonts"
-            config_font
+            config_monaco
             echo "done";;
         2)
             echo "config zsh"
