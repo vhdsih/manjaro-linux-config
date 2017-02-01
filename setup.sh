@@ -117,6 +117,7 @@ config_vscode() {
 }
 
 
+echo > $LOG
 
 while getopts 012345678A option
 do
