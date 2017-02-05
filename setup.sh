@@ -10,6 +10,16 @@ print_log() {
     echo -e  "\033[0;31;1m INSTALL-LOGS: $1  \033[0m"
     echo LOGS: $1 >> $LOG
 }
+# check software
+check_software() {
+    which $1 >> /dev/null
+    if [ $? = 0 ]; then
+        print_log "$1 had been installed"
+    else
+        print_log "$1 is not installed, installing now"
+        sudo $2 $1
+    fi
+}
 # update system
 update_system() {
     sudo pacman -Syyu
@@ -44,14 +54,10 @@ config_mirrors() {
 # config vim
 config_vim() {
     print_log "do config for vim..."
-    pacman -Qs vim
-    status=$?
-    if [ $status = 0 ]; then
-        print_log "vim had been installed"
-    else
-        print_log "vim not be installed, install now"
-        sudo pacman -S vim
-    fi
+    # vim had been installed?
+    check_software vim 'pacman -S'
+    # clang had been installed?
+    check_software clang 'pacman -S'
     # for .vimrc
     if [ -f "$HOME/.vimrc" ]; then 
         print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"
@@ -63,22 +69,19 @@ config_vim() {
         mv $HOME/.vim $HOME/.vim.bak
     fi
     # do config
-    cp $relative_location/res/vim/.vimrc $HOME/.vimrc
+    cp $relative_location/res/vim/.vimrc $HOME/
+    cp $relative_location/res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
+    print_log 'config youcompleteme'
+    $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
     print_log "done"
 }
 # config zsh
 config_zsh() {
     print_log "do config for zsh..."
-    pacman -Qs zsh
-    status=$?
-    if [ $status = 0 ]; then
-        print_log "zsh had been installed"
-    else
-        sudo pacman -S zsh
-    fi
-
+    check_software zsh 'pacman -S'
+    check_software autojump 'pacman -S'
     # for .zshrc
     if [ -f "$HOME/.zshrc" ]; then 
         print_log "mv $HOME/.zshrc to $HOME/.zshrc.bak"

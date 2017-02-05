@@ -29,11 +29,21 @@ backup_etc() {
 }
 
 backup_vim_zsh() {
+    rm -rf $relative_location/res/zsh/.zshrc.bak
+    rm -rf $relative_location/res/vim/.vimrc.bak
+    rm -rf $relative_location/res/vim/.ycm_extra_conf.py.bak
+
     mv $relative_location/res/zsh/.zshrc $relative_location/res/zsh/.zshrc.bak
     mv $relative_location/res/vim/.vimrc $relative_location/res/vim/.vimrc.bak
+    mv $relative_location/res/vim/.ycm_extra_conf.py $relative_location/res/vim/.ycm_extra_conf.py.bak
 
-    cp $HOME/.zshrc $relative_location/res/zsh/.zshrc
-    cp $HOME/.vimrc $relative_location/res/vim/.vimrc
+    rm -rf $relative_location/res/zsh/.zshrc
+    rm -rf $relative_location/res/vim/.vimrc
+    rm -rf $relative_location/res/vim/.ycm_extra_conf.py
+
+    cp $HOME/.zshrc $relative_location/res/zsh/
+    cp $HOME/.vimrc $relative_location/res/vim/
+    cp $HOME/.ycm_extra_conf.py $relative_location/res/vim
 }
 
 create_backup_command() {
