@@ -72,6 +72,7 @@ config_vim() {
     cp $relative_location/res/vim/.vimrc $HOME/
     cp $relative_location/res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    cp -r $relative_location/res/vim/colors ~/.vim/
     vim +PluginInstall +qall
     print_log 'config youcompleteme'
     $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
@@ -115,7 +116,7 @@ config_monaco() {
 config_vscode() {
     print_log "do for vscode"
     mkdir -p $HOME/.config/Code/User/
-    cp $relative_location/res/vscode/* $HOME/.config/Code/User/ 
+    cp $relative_location/res/code/* $HOME/.config/Code/User/ 
     print_log "done"
 }
 

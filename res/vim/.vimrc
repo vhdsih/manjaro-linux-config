@@ -1,4 +1,4 @@
-" basic
+" basic {{
 set number
 set ruler
 set showcmd
@@ -7,21 +7,21 @@ set noswapfile
 set cursorline
 set autoindent
 set cindent
+set smarttab
+set expandtab
+set smartindent
+set wildmenu
+set hlsearch
+set nowrap
+set guifont=monaco
+set encoding=utf-8
 set mouse=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set history=1000
-set smarttab
-set expandtab
-set encoding=utf-8
-
-set wildmenu
-set hlsearch
-set guifont=monaco
-set nowrap
-
-" leader
+" }}
+" leader {{
 let mapleader=","
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
@@ -29,34 +29,38 @@ nmap <leader>q1 :q!<CR>
 nmap <leader>wq :wq<CR>
 nmap <leader>y "+y
 nmap <leader>p "+p
-
+nmap <space> :
 "buffer
 nmap <leader><Tab> :bn<CR>
+"strip all trailing whitespace in the current file
+nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
+" }}
 
-
-" airline can be display when set this
-set t_Co=256
-set laststatus=2
 
 " hightlight
 syntax enable
 syntax on
 
 " color
-" color dracula
+" airline can be display when set this
+set t_Co=256
+set laststatus=2
+"set background=dark
+colorscheme molokai
+"color molokai
 
 filetype on
 filetype indent on
 filetype plugin on
-filetype plugin indent on    
+filetype plugin indent on
 
-" for vundle
+" for vundle {{
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-" add plugin at there 
+" add plugin at there
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
@@ -68,26 +72,30 @@ Plugin 'djoshea/vim-matlab'
 Plugin 'djoshea/vim-matlab-fold'
 Plugin 'dracula/vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kien/ctrlp.vim' 
+Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe' 
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
-Plugin 'docunext/closetag.vim' 
+Plugin 'docunext/closetag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
+Bundle 'ShowTrailingWhitespace'
+Bundle 'molokai'
 " plugin end here
-call vundle#end() 
+call vundle#end()
 filetype plugin indent on
+" }}
 
 " settings for airline
+let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:solarized_termcolors=16
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1 
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " settings for nerdtree
 map <C-b> :NERDTreeToggle<CR>
@@ -134,7 +142,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
 
-imap { {}<ESC>i<CR><ESC>V<O 
+imap { {}<ESC>i<CR><ESC>V<O
 
 " settings for nerdcommenter
 " Add spaces after comment delimiters by default
