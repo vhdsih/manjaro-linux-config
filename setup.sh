@@ -58,6 +58,8 @@ config_vim() {
     check_software vim 'pacman -S'
     # clang had been installed?
     check_software clang 'pacman -S'
+    # cmake had been installed?
+    check_software cmake 'pacman -S'
     # for .vimrc
     if [ -f "$HOME/.vimrc" ]; then 
         print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"
