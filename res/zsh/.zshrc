@@ -420,19 +420,54 @@ check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
 zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 
-
-
-
-# java jdk
+# java jdk {{
 export JAVA_HOME=/usr/lib/jvm/java8  
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 export TOMCAT_HOME=/opt/apache-tomcat-9.0.0.M10
 export NDK=/opt/android-ndk-r13b
-# alias
+# }}
+# cuda for arch linux {{
 export CUDA_HOME=/opt/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
+# }}
+# for rm {{
+# mkdir ~/.delete, when rm somethings ,mv them to here
+if [ ! -d $HOME/.delete ]
+then
+    mkdir $HOME/.delete
+fi
+unDoRm() {
+  mv -i $HOME/.delete/$@ ./
+}
+toBackup()
+{
+    for thing in $@
+    do
+        echo $thing | grep '^-' > /dev/null
+        if [ ! $? = 0 ]
+        then
+            mv $thing $HOME/.delete
+            echo mv $thing to ~/.delete, you can backup them
+        fi
+    done
 
+}
+cleanDelete()
+{
+    echo 'clear backup files?[y/N]'
+    read confirm
+    [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /usr/bin/rm -rf $HOME/.delete/*
+}
+# rm somethings
+alias rm=toBackup
+# see what in~/.delete now
+alias lsdel='ls $HOME/.delete'
+# undo
+alias unrm=unDoRm
+# clean ~/.delete
+alias cleandel=cleanDelete
+# }}
