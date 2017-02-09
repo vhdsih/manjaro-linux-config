@@ -64,6 +64,7 @@ URxvt.borderLess:False
 
 Xft.dpi:96
 URxvt.font:xft:Monaco:antialias=True:pixelsize=16,\
+    xft:Terminess Powerline:size=12 \
     xft:Ubuntu Mono derivative Powerline:antialias=True:pixelsize=16,\
     xft:Sauce Code Powerline:antialias=True:pixelsize=16,\
     xft:Microsoft Yahei:antialias=True:pixelsize=16
