@@ -30,6 +30,7 @@ nmap <leader>wq :wq<CR>
 nmap <leader>y "+y
 nmap <leader>p "+p
 nmap <space> :
+nmap <C-l> :noh<CR>
 "buffer
 nmap <leader><Tab> :bn<CR>
 "strip all trailing whitespace in the current file
@@ -81,6 +82,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
+" Plugin 'jeaye/color_coded'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'molokai'
 " plugin end here
@@ -96,7 +98,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-
+" tarbar
+nmap <leader>tb :Tagbar<CR>
 " settings for nerdtree
 map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
@@ -142,7 +145,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
 
-imap { {}<ESC>i<CR><ESC>V<O
+" imap { {}<ESC>i<CR><ESC>V<O
 
 " settings for nerdcommenter
 " Add spaces after comment delimiters by default
@@ -173,3 +176,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " syntastic
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+" color code
+" hi link StructDecl Type
+" hi link UnionDecl Type
+" hi link ClassDecl Type
+" hi link EnumDecl Type
