@@ -29,7 +29,7 @@ powerline-fonts
 clion
 npm
 go
-x86-input-synaptics
+xf86-input-synaptics
 manjaro-backgrounds
 mlocate
 visual-studio-code
@@ -39,3 +39,5 @@ google-chrome
 electronic-wechat-git
 tcpdump
 xclip
+shadowsocks-qt5
+

@@ -116,9 +116,9 @@ esac
 #编辑器
 export EDITOR=vim
 #输入法
-export XMODIFIERS="@im=ibus"
-export QT_MODULE=ibus
-export GTK_MODULE=ibus
+export XMODIFIERS="@im=fcitx"
+export QT_MODULE=fcitx
+export GTK_MODULE=fcitx
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
 export HISTSIZE=10000
@@ -194,7 +194,7 @@ setopt complete_in_word
 limit coredumpsize 0
 
 #Emacs风格 键绑定
-bindkey -e
+# bindkey -e
 #bindkey -v
 #设置 [DEL]键 为向后删除
 #bindkey "\e[3~" delete-char
@@ -249,8 +249,6 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 #kill 命令补全
-compdef pkill=kill
-compdef pkill=killall
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:*:*:processes' force-list always
 zstyle ':completion:*:processes' command 'ps -au$USER'
@@ -334,23 +332,6 @@ autoload run-help
 alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 #}}}
 
-#路径别名 {{{
-#进入相应的路径时只要 cd ~xxx
-hash -d A="/media/ayu/dearest"
-hash -d H="/media/data/backup/ayu"
-hash -d E="/etc/"
-hash -d D="/home/ayumi/Documents"
-#}}}
-
-##for Emacs {{{
-#在 Emacs终端 中使用 Zsh 的一些设置 不推荐在 Emacs 中使用它
-#if [[ "$TERM" == "dumb" ]]; then
-#setopt No_zle
-#PROMPT='%n@%M %/
-#>>'
-#alias ls='ls -F'
-#fi
-#}}}
 
 #{{{自定义补全
 #补全 ping
@@ -441,17 +422,20 @@ then
     mkdir $HOME/.delete
 fi
 unDoRm() {
-  mv -i $HOME/.delete/$@ ./
+    mv -i $HOME/.delete/$dir_name/* ./
 }
 toBackup()
 {
+    dir_name=`date`
+    mkdir -p $HOME/.delete/$dir_name
+    last=$@
     for thing in $@
     do
         echo $thing | grep '^-' > /dev/null
         if [ ! $? = 0 ]
         then
-            mv $thing $HOME/.delete
-            echo mv $thing to ~/.delete, you can backup them
+            mv $thing $HOME/.delete/$dir_name
+            echo mv $thing to ~/.delete/$dir_name, you can backup them
         fi
     done
 
@@ -471,3 +455,9 @@ alias unrm=unDoRm
 # clean ~/.delete
 alias cleandel=cleanDelete
 # }}
+
+# for cpp {{
+alias buildcpp='clang++ -std=c++11'
+alias runcpp='./a.out'
+#}}
+

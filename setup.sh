@@ -60,6 +60,8 @@ config_vim() {
     check_software clang 'pacman -S'
     # cmake had been installed?
     check_software cmake 'pacman -S'
+    # powerline-fonts
+    check_software powerline-fonts 'pacman -S'
     # for .vimrc
     if [ -f "$HOME/.vimrc" ]; then 
         print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# uninstall software
-
-

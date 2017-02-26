@@ -23,7 +23,7 @@ set history=1000
 " }}
 " leader {{
 let mapleader=","
-nmap <leader>w :w<CR>
+nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
 nmap <leader>q1 :q!<CR>
 nmap <leader>wq :wq<CR>
@@ -46,9 +46,9 @@ syntax on
 " airline can be display when set this
 set t_Co=256
 set laststatus=2
-"set background=dark
-colorscheme molokai
-"color molokai
+set background=dark
+colorscheme solarized
+" color molokai
 
 filetype on
 filetype indent on
@@ -76,12 +76,13 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 Plugin 'docunext/closetag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
+Plugin 'jiangmiao/auto-pairs'
 " Plugin 'jeaye/color_coded'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'molokai'
@@ -181,3 +182,53 @@ let g:syntastic_warning_symbol = '⚠'
 " hi link UnionDecl Type
 " hi link ClassDecl Type
 " hi link EnumDecl Type
+
+" compile and run {{
+map <F9> :call CompileRun()<CR>
+func! CompileRun()
+    exec "w"
+    if &filetype == 'c'
+        exec "!gcc % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ -std=c++11 % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!java %<"
+    elseif &filetype == 'sh'
+        :!./%
+    elseif &filetype == 'python'
+        :!python %
+    endif
+endfunc
+" }}
+" add header for files {{
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java, exec ":call SetTitle()" 
+func SetTitle() 
+    if &filetype == 'sh' 
+        call setline(1,"\#!/bin/bash") 
+    endif
+    if &filetype == 'cpp'
+        call setline(1, "/* author: dongchangzhang */")
+        call append(line("."), "/* time: ".strftime("%c")." */")
+        call append(line(".")+1, "")
+        call append(line(".")+2, "#include<algorithm>")
+        call append(line(".")+3, "#include<iostream>")
+        call append(line(".")+4, "#include<vector>")
+        call append(line(".")+5, "#include<string>")
+        call append(line(".")+6, "")
+        call append(line(".")+7, "using namespace std;")
+        call append(line(".")+8, "")
+    endif
+    if &filetype == 'c'
+        call setline(1, "/* author: dongchangzhang */")
+        call append(line("."), "/* time: ".strftime("%c")." */")
+        call append(line(".")+1, "")
+        call append(line(".")+2, "#include<stdio.h>")
+        call append(line(".")+3, "")
+    endif
+    autocmd BufNewFile * normal G
+endfunc 
+"
+" }}

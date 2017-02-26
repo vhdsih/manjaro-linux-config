@@ -2,7 +2,9 @@
 
 manjaro linux是基于arch linux的一个发行版本。
 
-### 功能
+### 功能概述
+
+包含vim、zsh、
 
 1. 对于新安装的manjaro linux，可以运行该脚本以配置pacman以及mirrors-list。更新并升级系统软件，安装常用的软件，安装monaco字体以及monaco-yahei字体以及powerline字体，配置vim、zsh以及vscode，配置git并且生成github需要的ssh-key
 2. 对于其他用户以上各个功能已经被拆分，可以根据需要选择使用。

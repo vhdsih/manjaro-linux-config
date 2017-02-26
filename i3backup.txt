@@ -1,0 +1,7 @@
+$HOME/.dmenurc
+$HOME/.Xresources
+$HOME/.i3
+$HOME/.i3status.conf
+$HOME/.config/morc_menu
+$HOME/.config/terminator
+$HOME/.conkyrc
