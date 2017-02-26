@@ -92,9 +92,8 @@ chmod +x backups.sh
 
 1. vim
 
-   使用ycm实现自动补全。具体请查看vimrc
-
-   ![vim](preview/vim.png)
+   使用ycm实现自动补全。具体请查看vimrc,另外对于res/vim/.ycm_extra_conf.py文件中，你需要根据自己的库位置编辑flag列表
+   ![vim](preview/vim.png)
 
 2. zsh
 
