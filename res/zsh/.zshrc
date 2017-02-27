@@ -461,3 +461,6 @@ alias buildcpp='clang++ -std=c++11'
 alias runcpp='./a.out'
 #}}
 
+# for sock5{{
+alias startsock='export http_proxy=socks5://127.0.0.1:1080'
+# }}

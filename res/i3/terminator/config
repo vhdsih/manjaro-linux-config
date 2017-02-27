@@ -16,14 +16,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
-    background_darkness = 0.9
+    background_color = "#1d2021"
+    background_darkness = 0.8
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#2D2D2D"
     font = Monaco 12
-    foreground_color = "#839496"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    foreground_color = "#e53c00"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

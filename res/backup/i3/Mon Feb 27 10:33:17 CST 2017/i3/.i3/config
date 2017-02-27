@@ -35,9 +35,7 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+p exec --no-startup-id dmenu_run  -fn 'Monaco-13' -nb '#1d2021' -nf '#ebdbb2' -sb '#111111' -sf '#a89984'
-bindsym $mod+d exec --no-startup-id rofi -show run
-
+bindsym $mod+d exec --no-startup-id dmenu_run  -fn 'Monaco-11' -nb '#002A36' -nf '#506A70' -sb '#111111' -sf '#576E74'
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -313,15 +311,15 @@ bar {
 
 	colors {
 #	background $transparent
-		background #1d2021
-        statusline #ebdbb2
-		separator  #a89984
+		background #002A36
+        statusline #576E74
+		separator  #576E74
 
 #                          border  backgr. text
-		focused_workspace  #a89984 #a89984 #1d2021
-		active_workspace   #1d2021 #1d2021 #a89984
-		inactive_workspace #1d2021 #1d2021 #a89984
-		urgent_workspace   #fb4934 #fb4934 #1d2021
+		focused_workspace  #576E74 #576E74 #002A36
+		active_workspace   #002A36 #002A36 #576E74
+		inactive_workspace #002A36 #002A36 #576E74
+		urgent_workspace   #3399ff #FDF6E3 #E5201D
 	}
 }
 
@@ -330,13 +328,13 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indic.  child_border
-client.focused          #a89984 #a89984 #80FFF9 #FDF6E3
-client.focused_inactive #1d2021 #1d2021 #16A085 #1d202a
-client.unfocused        #1d2021 #1d2021 #16A085 #1d2021
-client.urgent           #cc241d #cc241d #1d2021 #268BD2
+client.focused          #808280 #808280 #80FFF9 #FDF6E3
+client.focused_inactive #434745 #434745 #16A085 #454948
+client.unfocused        #434745 #434745 #16A085 #454948
+client.urgent           #CB4B16 #FDF6E3 #16A085 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
-client.background       #1d2021
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###

@@ -47,7 +47,8 @@ syntax on
 set t_Co=256
 set laststatus=2
 set background=dark
-colorscheme solarized
+colorscheme onedark
+let g:onedark_termcolors=256
 " color molokai
 
 filetype on
@@ -92,7 +93,7 @@ filetype plugin indent on
 " }}
 
 " settings for airline
-let g:airline_theme='luna'
+let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=1
 let g:solarized_termcolors=16
 let g:airline#extensions#tabline#enabled = 1

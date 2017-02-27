@@ -12,6 +12,7 @@ $HOME/.i3status.conf
 $HOME/.config/terminator
 $HOME/.conkyrc
 $HOME/.config/morc_menu
+$HOME/.config/rofi
 )
 
 backup() {
@@ -30,6 +31,7 @@ apply_backup() {
     cp -r $dir/terminator $HOME/.config
     cp $dir/.conkyrc $HOME
     cp -r $dir/morc_menu $HOME/.config
+    cp -r $dir/rofi $HOME/.config
 }
 
 backup
