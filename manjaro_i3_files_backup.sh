@@ -34,12 +34,15 @@ backup() {
     cp $HOME/.i3status.conf $backup_dir
     cp $HOME/.conkyrc $backup_dir
     cp $HOME/.xprofile $backup_dir
+    cp $HOME/.gtkrc-2.0 $backup_dir
     
 
     cp -r $HOME/.i3 $backup_dir
     cp -r $HOME/.config/morc_menu $backup_dir
     cp -r $HOME/.config/terminator $backup_dir
     cp -r $HOME/.config/rofi $backup_dir
+    cp -r $HOME/.config/gtk-* $backup_dir
+    cp -r $HOME/.config/qt5ct $backup_dir
 }
 
 backup_backup

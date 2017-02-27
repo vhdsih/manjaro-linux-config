@@ -1,4 +1,5 @@
 archlinuxcn-keyring
+yaourt
 fcitx
 fcitx-im
 fcitx-configtool
@@ -27,8 +28,6 @@ gcc-multilib
 shutter
 powerline-fonts
 clion
-npm
-go
 xf86-input-synaptics
 manjaro-backgrounds
 mlocate

@@ -34,8 +34,8 @@ install_software() {
 # config etc files
 config_etc() {
     print_log "config etc files"
-    chmod +x $relative_location/res/etc/etc.sh
-    $relative_location/res/etc/etc.sh
+    chmod +x $relative_location/etc_conf_apply.sh
+    $relative_location/etc_conf_apply.sh
     print_log "done"
 }
 # config ssh for github
@@ -123,11 +123,18 @@ config_vscode() {
     cp $relative_location/res/code/* $HOME/.config/Code/User/ 
     print_log "done"
 }
+# i3wm
+config_i3() {
+    print_log "do for i3wm"
+    chmod +x $relative_location/manjaro_i3_conf_apply.sh
+    $relative_location/manjaro_i3_conf_apply.sh
+    echo "done"
+}
 
 
 echo > $LOG
 
-while getopts 012345678A option
+while getopts 012345678AB option
 do
     case "$option" in
         0)
@@ -166,8 +173,13 @@ do
             config_mirrors
             echo "done";;
 
+        8)
+            echo "config i3wm"
+            config_i3
+            echo "done";;
+
         A)
-            echo "do all"
+            echo "do all who doesn't use i3wm"
             config_etc
             config_mirrors
             update_system
@@ -178,6 +190,20 @@ do
             config_zsh
             config_vscode
             config_ssh
+            echo "done";;
+        B)
+            echo "do all for i3 user"
+            config_etc
+            config_mirrors
+            update_system
+            install_software
+            config_font
+            config_monaco
+            config_vim
+            config_zsh
+            config_vscode
+            config_ssh
+            config_i3
             echo "done";;
 
         \?)
@@ -191,7 +217,10 @@ do
             echo "|-5  ssh for github                                                  |"
             echo "|-6  config etc files                                                |"
             echo "|-7  config mirrors list                                             |"
+            echo "|-8  config i3wm for manjaro                                         |"
+            echo "|                                                                    |"
             echo "|-A  do all for your system, if your system is new one               |"
+            echo "|-B  do all for manjaro i3wm user                                    |"
             echo "----------------------------------------------------------------------"
             echo "bye";;
     esac
