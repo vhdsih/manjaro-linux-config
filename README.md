@@ -59,6 +59,26 @@ cd manjaro-linux-config
 ```shell
 chmod +x setup.sh
 ./setup.sh -q
+
+# 功能如下
+./setup.sh -q
+------------------------------HELP------------------------------------
+----------------------------------------------------------------------
+|-0  install applications                                            |
+|-1  install monaco && micosoft yahei fonts                          |
+|-2  config zsh                                                      |
+|-3  config vim                                                      |
+|-4  visual studio code                                              |
+|-5  ssh for github                                                  |
+|-6  config etc files                                                |
+|-7  config mirrors list                                             |
+|-8  config i3wm for manjaro                                         |
+|                                                                    |
+|-A  do all for your system, if your system is new one               |
+|-B  do all for manjaro i3wm user                                    |
+----------------------------------------------------------------------
+bye
+
 ```
 
 选择你需要的功能运行
