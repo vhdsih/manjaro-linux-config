@@ -1,0 +1,62 @@
+conky.config = {
+	alignment = 'bottom_right',
+	background = true,
+	color2 = 'ebdbb2',
+	cpu_avg_samples = 2,
+	default_color = 'ebdbb2',
+	double_buffer = true,
+	font = 'Monaco:size=12',
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 80,
+	minimum_width = 160,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${font Cormorant SC:semibold:size=48}\
+$alignr${time %R}$font$color2
+${voffset 15}\
+$alignr${time %A}  
+$alignr${time %e %B}  
+$alignr${time %Y}  \
+$font$color
+#
+${voffset 10}\
+${execi 600 weather-report -qm --headers='Temperature,Windchill,Weather,Sky conditions' uwww|sed 's/; /\n\t\t\t/g'|sed 's/^.*:/\t\t\t/'}
+#
+${voffset 30}\
+$color2${font mono:size=6}\
+${execi 10000 screenfetch -L -N  | sed 's/^/\t/' | sed 's/ *$//'}\
+$font
+${voffset -10}\
+$alignr${font Comfortaa:bold:size=22}${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'}$font$color
+${voffset 10}\
+$alignr${execi 10000 awk -F= '/EASE=/ {printf $2" "} /NAME/ {print $2}' /etc/lsb-release}
+#
+${voffset 10}\
+$alignr${color2}kernel: $color${kernel}
+#
+${voffset 40}\
+CPU$alignr$cpu%
+${cpubar 4}
+$color2${top name 1}$color$alignr${top cpu 1}%
+$color2${top name 2}$color$alignr${top cpu 2}%
+$color2${top name 3}$color$alignr${top cpu 3}%
+$color2${top name 4}$color$alignr${top cpu 4}%
+$color2${top name 5}$color$alignr${top cpu 5}%
+#
+${voffset 10}\
+RAM$alignr$mem/${memmax}
+${membar 4}
+$color2${top_mem name 1}$color$alignr${top_mem mem_res 1}
+$color2${top_mem name 2}$color$alignr${top_mem mem_res 2}
+$color2${top_mem name 3}$color$alignr${top_mem mem_res 3}
+$color2${top_mem name 4}$color$alignr${top_mem mem_res 4}
+$color2${top_mem name 5}$color$alignr${top_mem mem_res 5}
+#
+]]

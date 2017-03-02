@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # crcandy me@Z [11:40:11] [~/Documents/ll] [master *]
 
 # ZSH_THEME="tjkirch_mod"
-ZSH_THEME="ys"
+ZSH_THEME="sorin"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
