@@ -1,13 +1,9 @@
 [global_config]
   focus = system
   suppress_multiple_term_dialog = True
-  title_font = Monaco 12
   title_transmit_bg_color = "#d30102"
-  title_use_system_font = False
   use_custom_url_handler = True
 [keybindings]
-  zoom_in = None
-  zoom_out = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -20,15 +16,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#fbf1c7"
+    background_color = "#1d2021"
     background_darkness = 0.8
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#2D2D2D"
-    cursor_shape = ibeam
-    font = Monaco 13
-    foreground_color = "#3c3836"
-    palette = "#fbf1c7:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#7c6f64:#928374:#9d0006:#79740e:#b57614:#076678:#8f3f71:#427b58:#3c3836"
+    font = Monaco 12
+    foreground_color = "#e9b96e"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

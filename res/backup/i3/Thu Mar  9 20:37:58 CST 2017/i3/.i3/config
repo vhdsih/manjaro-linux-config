@@ -35,8 +35,8 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'Monaco-10' -nb '#f9f9f9' -nf '#000000' -sb '#48c232' -sf '#ffffff'
-bindsym $mod+p exec --no-startup-id rofi -show run
+bindsym $mod+p exec --no-startup-id dmenu_run  -fn 'Monaco-13' -nb '#1d2021' -nf '#ebdbb2' -sb '#111111' -sf '#a89984'
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 
 # launch categorized menu
@@ -153,7 +153,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9
+set $ws9 9:9 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -201,7 +201,7 @@ for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable
+for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Manjaro Settings Manager"] floating enable border normal
@@ -221,7 +221,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 # for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="(?i)Shadowsocks-Qt5"] floating enable
+for_window [class="(?i)Shadowsocks-Qt5"] floating enable border normal
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -302,7 +302,7 @@ exec --no-startup-id xrandr --output eDP1 --primary
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	status_command i3status
-	position top
+	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
     tray_output primary
@@ -310,20 +310,20 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-	font xft:Monaco 10
+	font xft:Monaco 11
 	strip_workspace_numbers yes
 
 	colors {
 #	background $transparent
-		background #f9f9f9
-        statusline #000000
-		separator  #259423
+		background #1d2021
+        statusline #ebdbb2
+		separator  #a89984
 
 #                          border  backgr. text
-		focused_workspace  #48c232 #48c232 #ffffff
-		active_workspace   #f1c472 #f1c472 #000000
-		inactive_workspace #add8e6 #add8e6 #000000
-		urgent_workspace   #ff0000 #ff0000 #000000
+		focused_workspace  #a89984 #a89984 #1d2021
+		active_workspace   #1d2021 #1d2021 #a89984
+		inactive_workspace #1d2021 #1d2021 #a89984
+		urgent_workspace   #fb4934 #fb4934 #1d2021
 	}
 }
 
@@ -332,10 +332,10 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indic.  child_border
-client.focused          #f9f9f9 #a89984 #000000
-client.focused_inactive #eeeeee #eeeeee #000000 #1d202a
-client.unfocused        #eeeeee #eeeeee #000000 #1d2021
-client.urgent           #ff0000 #ff0000 #000000 #268BD2
+client.focused          #a89984 #a89984 #80FFF9 #FDF6E3
+client.focused_inactive #1d2021 #1d2021 #16A085 #1d202a
+client.unfocused        #1d2021 #1d2021 #16A085 #1d2021
+client.urgent           #cc241d #cc241d #1d2021 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
 client.background       #1d2021
