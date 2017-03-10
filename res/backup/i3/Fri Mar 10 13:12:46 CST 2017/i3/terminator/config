@@ -20,13 +20,15 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#fbf1c7"
     background_darkness = 0.8
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#2D2D2D"
     cursor_shape = ibeam
-    font = TamzenForPowerline 13
-    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    font = Monaco 13
+    foreground_color = "#3c3836"
+    palette = "#fbf1c7:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#7c6f64:#928374:#9d0006:#79740e:#b57614:#076678:#8f3f71:#427b58:#3c3836"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

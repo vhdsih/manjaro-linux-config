@@ -7,19 +7,19 @@
 ! config can be added there or also here below.
 ! For comments use "!"
 
-! Xft.dpi: 96
-! Xft.antialias: true
-! Xft.hinting: true
-! Xft.rgba: rgb
-! Xft.autohint: false
-! Xft.hintstyle: hintslight
-! Xft.lcdfilter: lcddefault
-!
-! XTerm*background: #2b2b2b
-! XTerm*foreground: #e7e7e7
-! XTerm*pointerColor: #16A085
-! XTerm*faceName: Fixed
-! XTerm*faceSize: 12
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Fixed
+XTerm*faceSize: 12
 
 
 !!$HOME/.Xresources
@@ -28,20 +28,6 @@ URxvt.preeditType:Root
 URxvt.inputMethod:fcitx
 !!颜色设置
 URxvt.depth:32
-!!中括号内数表示透明度
-URxvt.inheritPixmap:true
-URxvt.background:#000000
-URxvt.foreground:#ffffff
-URxvt.colorBD:Gray95
-URxvt.colorUL:Green
-URxvt.color1:Red2
-URxvt.color4:RoyalBlue
-URxvt.color5:Magenta2
-URxvt.color8:Gray50
-URxvt.color10:Green2
-URxvt.color12:DodgerBlue
-URxvt.color14:Cyan2
-URxvt.color15:Gray95
 !!URL操作
 URxvt.urlLauncher:chromium
 URxvt.matcher.button:1
@@ -62,11 +48,11 @@ URxvt.saveLines:3000
 URxvt.borderLess:False
 !!字体设置
 
-Xft.dpi:96
-URxvt.font:xft:Monaco:antialias=True:pixelsize=16,\
-    xft:Terminess Powerline:size=12 \
-    xft:Ubuntu Mono derivative Powerline:antialias=True:pixelsize=16,\
-    xft:Sauce Code Powerline:antialias=True:pixelsize=16,\
-    xft:Microsoft Yahei:antialias=True:pixelsize=16
-URxvt.boldfont:xft:Monaco:antialias=True:pixelsize=16,\
-    xft:PowerlineSymbols:pixelsize=16
+! Tamzen fonts for use with Powerline
+XTerm*font  : -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
+XTerm*font1 : -*-tamzenforpowerline-medium-*-*-*-9-*-*-*-*-*-*-*
+XTerm*font2 : -*-tamzenforpowerline-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font3 : -*-tamzenforpowerline-medium-*-*-*-13-*-*-*-*-*-*-*
+XTerm*font4 : -*-tamzenforpowerline-medium-*-*-*-15-*-*-*-*-*-*-*
+XTerm*font5 : -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
+XTerm*font6 : -*-tamzenforpowerline-medium-*-*-*-20-*-*-*-*-*-*-*

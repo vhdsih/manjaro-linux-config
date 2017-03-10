@@ -1,0 +1,27 @@
+conky.config = {
+	alignment = 'bottom_right',
+	background = true,
+	color2 = 'ffffff',
+	cpu_avg_samples = 2,
+	default_color = 'ffffff',
+	double_buffer = true,
+	font = 'Monaco:size=12',
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 80,
+	minimum_width = 160,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${font Cormorant SC:semibold:size=64}\
+$alignr${time %R}$font$color2
+${voffset 15}\
+$alignr${time %A}  
+$alignr${time %e %B %Y}  
+$font$color
+]]

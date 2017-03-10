@@ -3,7 +3,7 @@
 #
 
 ## define the font for dmenu to be used
-DMENU_FN="Tamzen-13"
+DMENU_FN="Monaco-10"
 
 ## background colour for unselected menu-items
 DMENU_NB="#f9f9f9"

@@ -22,20 +22,20 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Tamzen Regular 13
+font xft:Microsoft YaHei 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec terminal
+# i change it to terminator
 bindsym $mod+Return exec terminator
-bindsym $mod+Shift+Return exec terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'Tamzen-13' -nb '#f9f9f9' -nf '#000000' -sb '#48c232' -sf '#ffffff'
+bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'Monaco-10' -nb '#f9f9f9' -nf '#000000' -sb '#48c232' -sf '#ffffff'
 bindsym $mod+p exec --no-startup-id rofi -show run
 
 
@@ -310,7 +310,7 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-	font xft:Tamzen Regular 10
+	font xft:Monaco 10
 	strip_workspace_numbers yes
 
 	colors {
@@ -332,13 +332,13 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indic.  child_border
-client.focused          #f9f9f9 #f9f9f9 #000000
-client.focused_inactive #f9f9f9 #f9f9f9 #000000 #1d202a
-client.unfocused        #f2f2f2 #f2f2f2 #000000 #1d2021
+client.focused          #f9f9f9 #a89984 #000000
+client.focused_inactive #eeeeee #eeeeee #000000 #1d202a
+client.unfocused        #eeeeee #eeeeee #000000 #1d2021
 client.urgent           #ff0000 #ff0000 #000000 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
-client.background       #f9f9f9
+client.background       #1d2021
 
 #############################
 ### settings for i3-gaps: ###
