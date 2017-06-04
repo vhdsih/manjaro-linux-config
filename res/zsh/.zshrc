@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # crcandy me@Z [11:40:11] [~/Documents/ll] [master *]
 
 # ZSH_THEME="tjkirch_mod"
-ZSH_THEME="robbyrussell" #"sorin"
+ZSH_THEME="sorin"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -207,15 +207,15 @@ WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 setopt AUTO_LIST
 setopt AUTO_MENU
 #开启此选项，补全时会直接选中菜单项
-#setopt MENU_COMPLETE
+setopt MENU_COMPLETE
 
 autoload -U compinit
 compinit
 
 #自动补全缓存
-#zstyle ':completion::complete:*' use-cache on
-#zstyle ':completion::complete:*' cache-path .zcache
-#zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 #自动补全选项
 zstyle ':completion:*' verbose yes
@@ -338,7 +338,7 @@ alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 zstyle ':completion:*:ping:*' hosts 192.168.1.{1,50,51,100,101} www.google.com
 
 #补全 ssh scp sftp 等
-#zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 #}}}
 
 #{{{ F1 计算器
@@ -444,7 +444,7 @@ cleanDelete()
 {
     echo 'clear backup files?[y/N]'
     read confirm
-    [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /usr/bin/rm -rf $HOME/.delete/*
+    [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /bin/rm -rf $HOME/.delete/*
 }
 # rm somethings
 alias rm=toBackup
@@ -465,3 +465,6 @@ alias runcpp='./a.out'
 # for sock5{{
 alias startsock='export http_proxy=socks5://127.0.0.1:1080'
 # }}
+# 
+# 
+alias pythonn=python3.6

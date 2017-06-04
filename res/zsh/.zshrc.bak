@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # crcandy me@Z [11:40:11] [~/Documents/ll] [master *]
 
 # ZSH_THEME="tjkirch_mod"
-ZSH_THEME="sorin"
+ZSH_THEME="robbyrussell" #"sorin"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -448,6 +448,7 @@ cleanDelete()
 }
 # rm somethings
 alias rm=toBackup
+
 # see what in~/.delete now
 alias lsdel='ls $HOME/.delete'
 # undo

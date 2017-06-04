@@ -27,14 +27,14 @@ backup() {
 }
 
 apply_backup() {
-    sudo cp $dir/locale.gen /etc
+#    sudo cp $dir/locale.gen /etc
     sudo cp $dir/pacman.conf /etc
-    sudo cp $dir/pacman-mirrors.conf /etc
-    sudo cp $dir/70-synaptics.conf /etc/X11/xorg.conf.d/
-    sudo cp $dir/profile /etc
+ #   sudo cp $dir/pacman-mirrors.conf /etc
+ #   sudo cp $dir/70-synaptics.conf /etc/X11/xorg.conf.d/
+ #   sudo cp $dir/profile /etc
 }
 
 backup
 apply_backup
-sudo locale-gen
+#sudo locale-gen
 

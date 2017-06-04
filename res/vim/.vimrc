@@ -42,6 +42,8 @@ nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 syntax enable
 syntax on
 
+set shortmess=atI
+
 " color
 " airline can be display when set this
 set t_Co=256
@@ -76,17 +78,13 @@ Plugin 'dracula/vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Raimondi/delimitMate'
 Plugin 'docunext/closetag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
-" Plugin 'jeaye/color_coded'
 Bundle 'ShowTrailingWhitespace'
-Bundle 'molokai'
 " plugin end here
 call vundle#end()
 filetype plugin indent on
@@ -96,7 +94,7 @@ filetype plugin indent on
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=1
 let g:solarized_termcolors=16
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -119,35 +117,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd guibg=red ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
-" settings for youcompleteme
-" highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-" highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif	"离开插入模式后自动关闭预览窗口
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	"回车即选中当前项
-" youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion=['<c-n>']
-" let g:ycm_key_list_select_completion = ['Down']
-let g:ycm_key_list_previous_completion=['<c-p>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
-let g:ycm_key_invoke_completion = '<C-a>' " 强制补全
-let g:ycm_collect_identifiers_from_tags_files=1	" 开启 YCM 基于标签引擎
-let g:ycm_min_num_of_chars_for_completion=2	" 从第2个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=0	" 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_seed_identifiers_with_syntax=1	" 语法关键字补全
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>	"force recomile with syntastic
-" nnoremap <leader>lo :lopen<CR>	"open locationlist
-" nnoremap <leader>lc :lclose<CR>	"close locationlist
-inoremap <leader><leader> <C-x><C-o>
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
-
-" imap { {}<ESC>i<CR><ESC>V<O
 
 " settings for nerdcommenter
 " Add spaces after comment delimiters by default
@@ -210,23 +179,26 @@ func SetTitle()
     if &filetype == 'sh' 
         call setline(1,"\#!/bin/bash") 
     endif
+    if &filetype == 'py'
+        call setline(1, "/* author: dongchangzhang */")
+        call append(line("."), "/* time: ".strftime("%c")." */")
+        call append(line(".")+1, "")
+    endif
+    if &filetype == 'h'
+        call setline(1, "/* author: dongchangzhang */")
+        call append(line("."), "/* time: ".strftime("%c")." */")
+        call append(line(".")+1, "")
+    endif
     if &filetype == 'cpp'
         call setline(1, "/* author: dongchangzhang */")
         call append(line("."), "/* time: ".strftime("%c")." */")
         call append(line(".")+1, "")
-        call append(line(".")+2, "#include<algorithm>")
-        call append(line(".")+3, "#include<iostream>")
-        call append(line(".")+4, "#include<vector>")
-        call append(line(".")+5, "#include<string>")
-        call append(line(".")+6, "")
-        call append(line(".")+7, "using namespace std;")
-        call append(line(".")+8, "")
     endif
     if &filetype == 'c'
         call setline(1, "/* author: dongchangzhang */")
         call append(line("."), "/* time: ".strftime("%c")." */")
         call append(line(".")+1, "")
-        call append(line(".")+2, "#include<stdio.h>")
+        call append(line(".")+2, "# include<stdio.h>")
         call append(line(".")+3, "")
     endif
     autocmd BufNewFile * normal G

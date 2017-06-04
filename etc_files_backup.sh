@@ -29,11 +29,11 @@ backup_backup() {
 
 backup() {
     mkdir -p $backup_dir
-    cp /etc/locale.gen $backup_dir
-    cp /etc/pacman-mirrors.conf $backup_dir
+    #cp /etc/locale.gen $backup_dir
+    #cp /etc/pacman-mirrors.conf $backup_dir
     cp /etc/pacman.conf $backup_dir
-    cp /etc/X11/xorg.conf.d/70-synaptics.conf $backup_dir
-    cp /etc/profile $backup_dir
+    #cp /etc/X11/xorg.conf.d/70-synaptics.conf $backup_dir
+    #cp /etc/profile $backup_dir
 }
 
 backup_backup

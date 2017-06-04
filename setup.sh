@@ -7,7 +7,7 @@ LOG=$relative_location/log
 
 # print log
 print_log() {
-    echo -e  "\033[0;31;1m INSTALL-LOGS: $1  \033[0m"
+    echo -e  "\033[0;31;1m ==> $1  \033[0m"
     echo LOGS: $1 >> $LOG
 }
 # check software
@@ -22,6 +22,8 @@ check_software() {
 }
 # update system
 update_system() {
+    sudo pacman -S --noconfirm wget
+wget http://download.tuxfamily.org/gericom/gericom.asc && sudo pacman-key --add gericom.asc
     sudo pacman -Syyu
 }
 # install software
@@ -55,40 +57,37 @@ config_mirrors() {
 config_vim() {
     print_log "do config for vim..."
     # vim had been installed?
-    check_software vim 'pacman -S'
+    check_software vim 'pacman -S --noconfirm'
     # clang had been installed?
-    check_software clang 'pacman -S'
+    check_software clang 'pacman -S --noconfirm'
     # cmake had been installed?
-    check_software cmake 'pacman -S'
+    check_software cmake 'pacman -S --noconfirm'
     # powerline-fonts
-    check_software powerline-fonts 'pacman -S'
+    check_software powerline-fonts 'pacman -S --noconfirm'
     # for .vimrc
-    if [ -f "$HOME/.vimrc" ]; then 
+    if [ -f "$HOME/.vimrc" ]; then
         print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"
         mv $HOME/.vimrc $HOME/.vimrc.bak
     fi
     # for .vim
-    if [  -d "$HOME/.vim" ]; then  
+    if [  -d "$HOME/.vim" ]; then
         print_log "mv $HOME/.vim to $HOME/.vim.bak"
         mv $HOME/.vim $HOME/.vim.bak
     fi
     # do config
     cp $relative_location/res/vim/.vimrc $HOME/
-    cp $relative_location/res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     cp -r $relative_location/res/vim/colors ~/.vim/
     vim +PluginInstall +qall
-    print_log 'config youcompleteme'
-    $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
     print_log "done"
 }
 # config zsh
 config_zsh() {
     print_log "do config for zsh..."
-    check_software zsh 'pacman -S'
-    check_software autojump 'pacman -S'
+    check_software zsh 'pacman -S --noconfirm'
+    check_software autojump 'pacman -S --noconfirm'
     # for .zshrc
-    if [ -f "$HOME/.zshrc" ]; then 
+    if [ -f "$HOME/.zshrc" ]; then
         print_log "mv $HOME/.zshrc to $HOME/.zshrc.bak"
         mv $HOME/.zshrc $HOME/.zshrc.bak
     fi
@@ -96,10 +95,10 @@ config_zsh() {
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
     cp $relative_location/res/zsh/.zshrc ~/.zshrc
     chsh -s /bin/zsh
-    
-    if [ $? = 0 ] 
+
+    if [ $? = 0 ]
     then print_log "chsh successfully"
-    else 
+    else
         print_log "error when chsh"
     fi
     print_log "done"
@@ -116,11 +115,11 @@ config_monaco() {
     cd $exec_location
     print_log "done"
 }
-# vscode 
+# vscode
 config_vscode() {
     print_log "do for vscode"
     mkdir -p $HOME/.config/Code/User/
-    cp $relative_location/res/code/* $HOME/.config/Code/User/ 
+    cp $relative_location/res/code/* $HOME/.config/Code/User/
     print_log "done"
 }
 # i3wm
@@ -138,7 +137,7 @@ while getopts 012345678AB option
 do
     case "$option" in
         0)
-            echo "install applications" 
+            echo "install applications"
             update_system
             install_software
             echo "done";;
@@ -168,7 +167,7 @@ do
             config_etc
             echo "done";;
 
-        7) 
+        7)
             echo "config mirrors list"
             config_mirrors
             echo "done";;
@@ -213,7 +212,7 @@ do
             echo "|-1  install monaco && micosoft yahei fonts                          |"
             echo "|-2  config zsh                                                      |"
             echo "|-3  config vim                                                      |"
-            echo "|-4  visual studio code                                              |"    
+            echo "|-4  visual studio code                                              |"
             echo "|-5  ssh for github                                                  |"
             echo "|-6  config etc files                                                |"
             echo "|-7  config mirrors list                                             |"
