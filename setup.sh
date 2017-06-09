@@ -7,54 +7,69 @@ LOG=$relative_location/log
 
 # print log
 print_log() {
-    echo -e  "\033[0;31;1m ==> $1  \033[0m"
-    echo LOGS: $1 >> $LOG
+    echo -e  "\033[0;31;1m==> $1\033[0m"
+    echo $1 >> $LOG
 }
 # check software
 check_software() {
+    echo "-> checking app $1..."
     which $1 >> /dev/null
     if [ $? = 0 ]; then
-        print_log "$1 had been installed"
+        echo "-> $1 had been installed"
     else
-        print_log "$1 is not installed, installing now"
+        echo "-> $1 has not been installed, installing now"
         sudo $2 $1
     fi
 }
 # update system
 update_system() {
-    sudo pacman -S --noconfirm wget
-wget http://download.tuxfamily.org/gericom/gericom.asc && sudo pacman-key --add gericom.asc
+    clear
+    print_log "update system..."
+    check_software wget "pacman -S --noconfirm"
+    wget http://download.tuxfamily.org/gericom/gericom.asc
+    sudo pacman-key --add gericom.asc
     sudo pacman -Syyu
+    print_log "done"
+
 }
 # install software
 install_software() {
-    print_log "do install softwares..."
+    clear
+    print_log 'install software...'
     chmod +x $relative_location/res/app/install.sh
     $relative_location/res/app/install.sh
     print_log "done"
+
 }
 # config etc files
 config_etc() {
-    print_log "config etc files"
-    chmod +x $relative_location/etc_conf_apply.sh
-    $relative_location/etc_conf_apply.sh
+    clear
+    print_log "config etc..."
+    chmod +x $relative_location/res/etc/etc_conf_apply.sh
+    $relative_location/res/etc/etc_conf_apply.sh
     print_log "done"
+
 }
 # config ssh for github
 config_ssh() {
+    clear
     print_log "config ssh for github..."
     chmod +x $relative_location/res/ssh/ssh.sh
     $relative_location/res/ssh/ssh.sh
     print_log "done"
+
 }
 # config mirrors list
 config_mirrors() {
+    clear
     print_log "config mirrors list"
     sudo pacman-mirrors -g -c China
     print_log "done"
+
 }
 # config vim
 config_vim() {
+    clear
     print_log "do config for vim..."
     # vim had been installed?
     check_software vim 'pacman -S --noconfirm'
@@ -83,9 +98,11 @@ config_vim() {
 }
 # config zsh
 config_zsh() {
+    clear
     print_log "do config for zsh..."
     check_software zsh 'pacman -S --noconfirm'
     check_software autojump 'pacman -S --noconfirm'
+    check_software powerline-fonts 'pacman -S --noconfirm'
     # for .zshrc
     if [ -f "$HOME/.zshrc" ]; then
         print_log "mv $HOME/.zshrc to $HOME/.zshrc.bak"
@@ -103,18 +120,7 @@ config_zsh() {
     fi
     print_log "done"
 }
-# config monaco-yahei
-config_monaco() {
-    print_log "add monaco-yahei font"
-    sudo cp -r $relative_location/res/font/Monaco /usr/share/fonts/
-    cd /usr/share/fonts/Monaco
-    sudo chmod 755 *
-    sudo mkfontscale
-    sudo mkfontdir
-    sudo fc-cache -fv
-    cd $exec_location
-    print_log "done"
-}
+
 # vscode
 config_vscode() {
     print_log "do for vscode"
@@ -136,16 +142,12 @@ echo > $LOG
 while getopts 012345678AB option
 do
     case "$option" in
-        0)
+        1)
             echo "install applications"
             update_system
             install_software
             echo "done";;
 
-        1)
-            echo "install Monaco && microsoft yahei fonts"
-            config_monaco
-            echo "done";;
         2)
             echo "config zsh"
             config_zsh
@@ -207,9 +209,7 @@ do
 
         \?)
             echo "------------------------------HELP------------------------------------"
-            echo "----------------------------------------------------------------------"
-            echo "|-0  install applications                                            |"
-            echo "|-1  install monaco && micosoft yahei fonts                          |"
+            echo "|-1  install applications                                            |"
             echo "|-2  config zsh                                                      |"
             echo "|-3  config vim                                                      |"
             echo "|-4  visual studio code                                              |"

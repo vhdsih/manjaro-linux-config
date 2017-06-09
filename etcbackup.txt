@@ -1,6 +1,0 @@
-/etc/locale.gen
-/etc/pacman-mirrors.conf
-/etc/pacman.conf
-/etc/X11/xorg.conf.d/70.synaptics.conf
-/etc/profile
-

@@ -1,4 +1,0 @@
-$HOME/.vimrc
-$HOME/.vim/colors
-$HOME/.zshrc
-

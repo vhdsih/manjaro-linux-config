@@ -57,7 +57,7 @@ while getopts 0123 option
 do
     case "$option" in
         0)
-            echo "back up home files" 
+            echo "back up home files"
             install_pigz
             create_backup_command
             echo "-------------------    backups command    -------------------"
@@ -65,9 +65,9 @@ do
             echo "-------------------------------------------------------------"
             echo "Edit backups command(Y/n)"
             read command
-            if [ $command = 'Y' -o $command = 'y' ]; then 
+            if [ $command = 'Y' -o $command = 'y' ]; then
                 which vim > /dev/null
-                if [ !$? = 0 ]; then 
+                if [ !$? = 0 ]; then
                     sudo pacman -S vim
                 fi
                 vim $commands_location
@@ -90,10 +90,9 @@ do
 
         \?)
             echo "------------------------------HELP------------------------------------"
-            echo "----------------------------------------------------------------------"
             echo "|-0  backup home files to backup.tar                                 |"
             echo "|-1  extract backup.tar to there                                     |"
-            echo "|-2  backup vim and zsh                                          |"
+            echo "|-2  backup vim and zsh                                              |"
             echo "----------------------------------------------------------------------"
             echo "bye";;
     esac

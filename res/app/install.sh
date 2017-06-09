@@ -5,12 +5,12 @@ relative_location=`dirname $0`
 
 pacman_APP=$relative_location/pacman
 yaourt_APP=$relative_location/yaourt
-LOG=$relative_location/log
+LOG=install.log
 
 ## print log
 print_log() {
-    echo -e  "\033[0;31;1mlog::install-app $1  \033[0m"
-    echo log::install-app $1 >> $LOG
+    echo -e  "\033[0;31;1m$1  \033[0m"
+    echo $1 >> $LOG
 }
 
 install_software() {
@@ -20,24 +20,29 @@ install_software() {
 
     for app in $(cat $1)
     do
-        print_log "start to install $app"
+        clear
+        print_log "==> Start to install $app"
         echo "$3 $2 -S $app"
         $3 $2 -S --noconfirm $app
         status=$?
         if [ $status = 0 ]
         then
-            print_log "$app installed successfully!"
-            success_installed=`expr $success_installed + 1`
+            print_log "Installed:  $app"
+            success_installed=`expr $have_been_installed + 1`
         else
-            print_log "error::install-error $app not be installed"
-            false_installed=`expr $false_installed + 1`
+            print_log "=> Error: $app"
+            false_installed=`expr $not_be_installed + 1`
         fi
     done
 
-    # install information
-
-    print_log "$success_installed apps had been installed"
-    print_log "$false_installed apps were not installed"
+    clear
+    echo "-*- install work done for $1 -*-"
+    echo ""
+    print_log "-> information: $have_been_installed apps had been installed"
+    print_log "-> information: $not_be_installed apps were not installed"
+    echo ""
+    echo "wait 3s please..."
+    sleep 3
 }
 
 
