@@ -1,12 +1,65 @@
 
-==> Start to install cmatrix
-Installed: cmatrix
+==> Start to install archlinuxcn-keyring
+Installed: archlinuxcn-keyring
+==> Start to install arc-kde
+Installed: arc-kde
+==> Start to install autojump
+=> Error: autojump
+==> Start to install clang
+=> Error: clang
+==> Start to install clion
+=> Error: clion
+==> Start to install cmake
+=> Error: cmake
+==> Start to install electronic-wechat-git
+=> Error: electronic-wechat-git
+==> Start to install fcitx
+=> Error: fcitx
+==> Start to install fcitx-configtool
+=> Error: fcitx-configtool
+==> Start to install fcitx-im
+=> Error: fcitx-im
+==> Start to install fcitx-sogoupinyin
+=> Error: fcitx-sogoupinyin
+==> Start to install gcc-multilib
+=> Error: gcc-multilib
+==> Start to install gedit
+Installed: gedit
+==> Start to install git
+=> Error: git
+==> Start to install google-chrome
+=> Error: google-chrome
+==> Start to install htop
+Installed: htop
+==> Start to install manjaro-backgrounds
+=> Error: manjaro-backgrounds
+==> Start to install megasync
+=> Error: megasync
+==> Start to install mlocate
+Installed: mlocate
+==> Start to install netease-cloud-music
+=> Error: netease-cloud-music
+==> Start to install papirus-icon-theme
+=> Error: papirus-icon-theme
+==> Start to install powerline-fonts
+=> Error: powerline-fonts
+==> Start to install python2-pip
+Installed: python2-pip
+==> Start to install python-pip
+=> Error: python-pip
+==> Start to install ranger
+=> Error: ranger
+==> Start to install rar
+=> Error: rar
+==> Start to install shadowsocks-qt5
+=> Error: shadowsocks-qt5
+==> Start to install shutter
+=> Error: shutter
+==> Start to install smplayer
+=> Error: smplayer
+==> Start to install tcpdump
+Installed: tcpdump
+==> Start to install tlp
+=> Error: tlp
 ==> Start to install tree
 Installed: tree
-==> Start to install zsh
-Installed: zsh
-==> Start to install autojump
-Installed: autojump
--> information: apps had been installed
--> information: apps were not installed
-==> Start to install albert

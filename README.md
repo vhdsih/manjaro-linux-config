@@ -4,10 +4,21 @@ manjaro linux configuration
 
 -> 怎样使用
 
+
+
 ```shell
 # 克隆到本地
 git clone git@github.com:dongchangzhang/manjaro-linux-config.git
 cd manjaro-linux-config
+```
+
+方案1（图形界面）
+
+![ui](preview/ui.png)
+
+方案2（命令行参数）
+
+```shell
 # 查看功能
 chmod +x setup.sh
 ./setup.sh -q

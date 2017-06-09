@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+#!/bin/bash
+
 exec_location=`pwd`
 relative_location=`dirname $0`
 
@@ -139,66 +142,91 @@ config_i3() {
 
 echo > $LOG
 
-while getopts 012345678AB option
-do
-    case "$option" in
-        1)
-            echo "install applications"
-            update_system
-            install_software
-            echo "done";;
 
-        2)
-            echo "config zsh"
-            config_zsh
-            echo "done";;
-        3)
-            echo "config vim"
-            config_vim
-            echo "done";;
-        4)
-            echo "visual studio code"
-            config_vscode
-            echo "done";;
-        5)
-            echo "ssh for github"
-            config_ssh
-            echo "done";;
-        6)
-            echo "config etc files"
-            config_etc
-            echo "done";;
+clear
 
-        7)
-            echo "config mirrors list"
-            config_mirrors
-            echo "done";;
+GUI=$(zenity --list --checklist \
+  --height="400" \
+  --width="800" \
+  --title="manjaro linux tools" \
+  --text="请勾选需要的动作" \
+  --column="选择" --column="编码"	--column="操作描述" \
+  FALSE "1" "配置pacman - 执行pacman-mirrors并且更换pacman.conf"  \
+  FALSE "2" "更新系统并安装gericom库的秘钥（用于安装papirus图标和arc-kde主题）" \
+  FALSE "3" "安装需要的软件" \
+  FALSE "4" "配置vim" \
+  FALSE "5" "配置zsh" \
+  FALSE "6" "安装windows字体 - 从github上clone，需要大量时间" \
+  --separator=" ");
 
-        A)
-            echo "do all who doesn't use i3wm"
-            config_etc
-            config_mirrors
-            update_system
-            install_software
-            config_font
-            config_vim
-            config_zsh
-            config_vscode
-            config_ssh
-            echo "done";;
+if [[ $GUI ]]
+then
 
-        \?)
-            echo "------------------------------HELP------------------------------------"
-            echo "|-1  install applications                                            |"
-            echo "|-2  config zsh                                                      |"
-            echo "|-3  config vim                                                      |"
-            echo "|-4  visual studio code                                              |"
-            echo "|-5  ssh for github                                                  |"
-            echo "|-6  config etc files                                                |"
-            echo "|-7  config mirrors list                                             |"
-            echo "|                                                                    |"
-            echo "|-A  do all for your system, if your system is new one               |"
-            echo "----------------------------------------------------------------------"
-            echo "bye";;
-    esac
-done
+  if [[ $GUI == *"1"* ]]
+  then
+    clear
+  	echo "配置pacman"
+    config_etc
+    config_mirrors
+    echo 'wait 3s please...'
+    sleep 3
+
+  fi
+
+   if [[ $GUI == *"2"* ]]
+  then
+    clear
+  	echo "正在更新系统"
+    update_system
+    echo 'wait 3s please...'
+    sleep 3
+
+  fi
+
+   if [[ $GUI == *"3"* ]]
+  then
+    clear
+  	echo "安装软件"
+    install_software
+    echo 'wait 3s please...'
+    sleep 3
+  fi
+
+   if [[ $GUI == *"4"* ]]
+  then
+    clear
+  	echo "配置vim"
+    config_vim
+    echo 'wait 3s please...'
+    sleep 3
+
+  fi
+
+   if [[ $GUI == *"5"* ]]
+  then
+    clear
+  	echo "配置zsh"
+    config_zsh
+    echo 'wait 3s please...'
+    sleep 3
+
+  fi
+
+   if [[ $GUI == *"6"* ]]
+  then
+    clear
+  	echo "正在更新系统"
+  	git clone https://github.com/dongchangzhang/fonts
+    sudo chmod a+x fonts/setup.sh
+    sudo ./fonts/setup.sh
+    echo 'wait 3s please...'
+    sleep3
+
+  fi
+
+  # 完成通知
+  clear
+  notify-send -i utilities-terminal manjaro "配置完成，部分配置重启后生效。"
+
+
+fi
