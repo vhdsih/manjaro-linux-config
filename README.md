@@ -13,6 +13,10 @@ cd manjaro-linux-config
 ```
 
 方案1（图形界面）
+```
+chmod a+x ui.sh
+./ui.sh
+```
 
 ![ui](preview/ui.png)
 
