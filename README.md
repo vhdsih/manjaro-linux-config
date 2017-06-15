@@ -13,6 +13,10 @@ cd manjaro-linux-config
 ```
 
 方案1（图形界面）
+```
+chmod a+x ui.sh
+./ui.sh
+```
 
 ![ui](preview/ui.png)
 
@@ -29,9 +33,7 @@ chmod +x setup.sh
 |-4  visual studio code                                              |
 |-5  ssh for github                                                  |
 |-6  config etc files                                                |
-|-7  config mirrors list                                             |
-|-8  config i3wm for manjaro                                         |
-|                                                                    |
+|-7  config mirrors list                                             |          
 |-A  do all for your system, if your system is new one               |
 ----------------------------------------------------------------------
 bye
