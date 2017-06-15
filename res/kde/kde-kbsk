@@ -12,9 +12,10 @@ activate task manager entry 9=Meta+9
 activate widget 2=Alt+F1
 activate widget 35=none
 activate widget 42=none
-activate widget 52=Meta+M
 activate widget 61=none
+activate widget 73=none
 activate widget 8=none
+activate widget 81=Meta+\\
 clear-history=none
 clipboard_action=Ctrl+Alt+X
 cycleNextAction=none
@@ -27,10 +28,13 @@ repeat_action=Ctrl+Alt+R
 show dashboard=Meta+D
 show-barcode=none
 show-on-mouse-pos=none
-stop current activity=Meta+S
+stop current activity=none
 switch-to-activity-858db3da-2405-451c-97a2-9a5f52d2b850=none
 
-[KDE Keyboard Layout Switcher][Global Shortcuts]
+[kaccess][Global Shortcuts]
+Toggle Screen Reader On and Off=none
+
+[kcm_touchpad][Global Shortcuts]
 Disable Touchpad=Touchpad Off
 Enable Touchpad=Touchpad On
 Switch to Next Keyboard Layout=Ctrl+Alt+K
@@ -41,10 +45,7 @@ Toggle Touchpad=Touchpad Toggle
 {76ff80a5-aedb-47bd-aaa4-23d7cb4adeaa}=Print
 {791e35c9-01d7-45bb-a56c-8fb27cd306d2}=Meta+E
 {bd4d5262-e8a7-44d1-82c5-9c2525459a7e}=Shift+Print
-{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search
-
-[kaccess][Global Shortcuts]
-Toggle Screen Reader On and Off=none
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none
 
 [kded5][Global Shortcuts]
 Decrease Keyboard Brightness=Keyboard Brightness Down
@@ -67,7 +68,7 @@ mic_mute=Microphone Mute
 mute=Volume Mute
 
 [krunner][Global Shortcuts]
-run command=Alt+Space; Alt+F2;\s
+run command=Alt+Space; Meta+Space
 run command on clipboard contents=Alt+Shift+F2
 
 [ksmserver][Global Shortcuts]
@@ -81,8 +82,10 @@ Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=none
 Expose=Ctrl+F9
-ExposeAll=Ctrl+F10; Launch (C)
+ExposeAll=Meta+W; Launch (C)
 ExposeClass=Ctrl+F7
+FlipSwitchAll=none
+FlipSwitchCurrent=none
 Increase Opacity=none
 Invert Screen Colors=none
 Kill Window=Ctrl+Alt+Esc
@@ -95,7 +98,7 @@ MoveZoomUp=none
 Remove Window From Group=none
 Setup Window Shortcut=none
 Show Desktop=none
-ShowDesktopGrid=Meta+W
+ShowDesktopGrid=Meta+S
 Suspend Compositing=Alt+Shift+F12
 Switch One Desktop Down=none
 Switch One Desktop Up=none

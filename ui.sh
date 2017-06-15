@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-#!/bin/bash
-
 exec_location=`pwd`
 relative_location=`dirname $0`
 

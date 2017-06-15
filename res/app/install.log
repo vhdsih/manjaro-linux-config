@@ -1,13 +1,102 @@
 
-==> Start to install cmatrix
-Installed: cmatrix
-==> Start to install screenfetch
-Installed: screenfetch
+==> Start to install arc-gtk-theme
+Installed: arc-gtk-theme
+==> Start to install archlinuxcn-keyring
+Installed: archlinuxcn-keyring
+==> Start to install arc-kde
+Installed: arc-kde
+==> Start to install autojump
+Installed: autojump
+==> Start to install clang
+Installed: clang
+==> Start to install clion
+Installed: clion
+==> Start to install cmake
+Installed: cmake
+==> Start to install electronic-wechat-git
+Installed: electronic-wechat-git
+==> Start to install fcitx
+Installed: fcitx
+==> Start to install fcitx-configtool
+Installed: fcitx-configtool
+==> Start to install fcitx-im
+Installed: fcitx-im
+==> Start to install fcitx-sogoupinyin
+Installed: fcitx-sogoupinyin
+==> Start to install gcc-multilib
+Installed: gcc-multilib
+==> Start to install git
+Installed: git
+==> Start to install gitg
+Installed: gitg
+==> Start to install google-chrome
+Installed: google-chrome
+==> Start to install gvim
+Installed: gvim
+==> Start to install htop
+Installed: htop
+==> Start to install megasync
+Installed: megasync
+==> Start to install mlocate
+Installed: mlocate
+==> Start to install neofetch
+Installed: neofetch
+==> Start to install netease-cloud-music
+Installed: netease-cloud-music
+==> Start to install pandoc
+Installed: pandoc
+==> Start to install papirus-icon-theme
+Installed: papirus-icon-theme
+==> Start to install powerline-fonts
+Installed: powerline-fonts
+==> Start to install pycharm-community
+Installed: pycharm-community
+==> Start to install python2-pip
+Installed: python2-pip
+==> Start to install python-pip
+Installed: python-pip
 ==> Start to install ranger
 Installed: ranger
-==> Start to install vim
-Installed: vim
+==> Start to install rar
+Installed: rar
+==> Start to install screenfetch
+Installed: screenfetch
+==> Start to install shadowsocks-qt5
+Installed: shadowsocks-qt5
+==> Start to install smplayer
+Installed: smplayer
+==> Start to install tcpdump
+Installed: tcpdump
+==> Start to install tlp
+Installed: tlp
 ==> Start to install tree
 Installed: tree
--> information: apps had been installed
--> information: apps were not installed
+==> Start to install ttf-monaco
+Installed: ttf-monaco
+==> Start to install ttf-ubuntu-font-family
+Installed: ttf-ubuntu-font-family
+==> Start to install ttf-wps-fonts
+Installed: ttf-wps-fonts
+==> Start to install typora
+Installed: typora
+==> Start to install unrar
+Installed: unrar
+==> Start to install virtualbox
+Installed: virtualbox
+==> Start to install visual-studio-code
+Installed: visual-studio-code
+==> Start to install wireshark-qt
+Installed: wireshark-qt
+==> Start to install wps-office
+Installed: wps-office
+==> Start to install xclip
+Installed: xclip
+==> Start to install yaourt
+Installed: yaourt
+==> Start to install zeal
+Installed: zeal
+==> Start to install zsh
+Installed: zsh
+-> 49 apps had been installed
+-> 0 apps were not installed
+==> Start to install albert

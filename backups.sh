@@ -2,6 +2,7 @@
 
 relative_location=`dirname $0`
 commands_location=$relative_location/tar.sh
+whoareyou=`whoami`
 
 install_pigz() {
     which pigz >> /dev/null
@@ -40,17 +41,16 @@ create_backup_command() {
     echo > $commands_location
     echo "#!/bin/bash" >> $commands_location
     echo "tar --use-compress-program=pigz \\" >> $commands_location
-    echo "--exclude=$HOME/.cache \\" >> $commands_location
-    echo "--exclude=$HOME/.android \\" >> $commands_location
-    for dir in $(ls $HOME); do
-        echo "--exclude=$HOME/$dir \\" >> $commands_location
-    done;
-    echo "-cvpf backup.tar $HOME" >> $commands_location
+    echo "-cvpf backup.tar \\" >> $commands_location
+    for f in $(ls -A $HOME)
+    do
+        echo "$HOME/$f \\" >> $commands_location
+    done
 }
 
 extract_backups() {
     tar --use-compress-program=pigz \
-        -xvpf backup.tar
+        -xvpf  backup.tar
 }
 
 while getopts 0123 option

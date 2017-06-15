@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sort pacman > pacman.tmp
-sort yaourt > yaourt.tmp
+sort -bu pacman > pacman.tmp
+sort -bu yaourt > yaourt.tmp
 
 mv pacman.tmp pacman
 mv yaourt.tmp yaourt

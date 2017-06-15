@@ -1,65 +1,101 @@
 
+==> Start to install arc-gtk-theme
+Installed: arc-gtk-theme
 ==> Start to install archlinuxcn-keyring
 Installed: archlinuxcn-keyring
 ==> Start to install arc-kde
 Installed: arc-kde
 ==> Start to install autojump
-=> Error: autojump
+Installed: autojump
 ==> Start to install clang
-=> Error: clang
+Installed: clang
 ==> Start to install clion
-=> Error: clion
+Installed: clion
 ==> Start to install cmake
-=> Error: cmake
+Installed: cmake
 ==> Start to install electronic-wechat-git
-=> Error: electronic-wechat-git
+Installed: electronic-wechat-git
 ==> Start to install fcitx
-=> Error: fcitx
+Installed: fcitx
 ==> Start to install fcitx-configtool
-=> Error: fcitx-configtool
+Installed: fcitx-configtool
 ==> Start to install fcitx-im
-=> Error: fcitx-im
+Installed: fcitx-im
 ==> Start to install fcitx-sogoupinyin
-=> Error: fcitx-sogoupinyin
+Installed: fcitx-sogoupinyin
 ==> Start to install gcc-multilib
-=> Error: gcc-multilib
-==> Start to install gedit
-Installed: gedit
+Installed: gcc-multilib
 ==> Start to install git
-=> Error: git
+Installed: git
+==> Start to install gitg
+Installed: gitg
 ==> Start to install google-chrome
-=> Error: google-chrome
+Installed: google-chrome
+==> Start to install gvim
+Installed: gvim
 ==> Start to install htop
 Installed: htop
-==> Start to install manjaro-backgrounds
-=> Error: manjaro-backgrounds
 ==> Start to install megasync
-=> Error: megasync
+Installed: megasync
 ==> Start to install mlocate
 Installed: mlocate
+==> Start to install neofetch
+Installed: neofetch
 ==> Start to install netease-cloud-music
-=> Error: netease-cloud-music
+Installed: netease-cloud-music
+==> Start to install pandoc
+Installed: pandoc
 ==> Start to install papirus-icon-theme
-=> Error: papirus-icon-theme
+Installed: papirus-icon-theme
 ==> Start to install powerline-fonts
-=> Error: powerline-fonts
+Installed: powerline-fonts
+==> Start to install pycharm-community
+Installed: pycharm-community
 ==> Start to install python2-pip
 Installed: python2-pip
 ==> Start to install python-pip
-=> Error: python-pip
+Installed: python-pip
 ==> Start to install ranger
-=> Error: ranger
+Installed: ranger
 ==> Start to install rar
-=> Error: rar
+Installed: rar
+==> Start to install screenfetch
+Installed: screenfetch
 ==> Start to install shadowsocks-qt5
-=> Error: shadowsocks-qt5
-==> Start to install shutter
-=> Error: shutter
+Installed: shadowsocks-qt5
 ==> Start to install smplayer
-=> Error: smplayer
+Installed: smplayer
 ==> Start to install tcpdump
 Installed: tcpdump
 ==> Start to install tlp
-=> Error: tlp
+Installed: tlp
 ==> Start to install tree
 Installed: tree
+==> Start to install ttf-monaco
+Installed: ttf-monaco
+==> Start to install ttf-ubuntu-font-family
+Installed: ttf-ubuntu-font-family
+==> Start to install ttf-wps-fonts
+Installed: ttf-wps-fonts
+==> Start to install typora
+Installed: typora
+==> Start to install unrar
+Installed: unrar
+==> Start to install virtualbox
+Installed: virtualbox
+==> Start to install visual-studio-code
+Installed: visual-studio-code
+==> Start to install wireshark-qt
+Installed: wireshark-qt
+==> Start to install wps-office
+Installed: wps-office
+==> Start to install xclip
+Installed: xclip
+==> Start to install yaourt
+Installed: yaourt
+==> Start to install zeal
+Installed: zeal
+==> Start to install zsh
+Installed: zsh
+-> 49 apps had been installed
+-> 0 apps were not installed
