@@ -10,8 +10,11 @@ export ZSH=$HOME/.oh-my-zsh
 # crcandy me@Z [11:40:11] [~/Documents/ll] [master *]
 
 # ZSH_THEME="tjkirch_mod"
-ZSH_THEME="sorin"
 # Uncomment the following line to use case-sensitive completion.
+#ZSH_THEME="sorin"
+ZSH_THEME="avit"
+# ZSH_THEME="aussiegeek"
+# ZSH_THEME="obraun"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -53,7 +56,7 @@ ZSH_THEME="sorin"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump web-content)
+plugins=(git autojump web-content last-working-dir pacman colored-man-pages sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -402,7 +405,7 @@ zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 
 # java jdk {{
-export JAVA_HOME=/usr/lib/jvm/java8  
+export JAVA_HOME=/usr/lib/jvm/java8
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
@@ -422,13 +425,23 @@ then
     mkdir $HOME/.delete
 fi
 unDoRm() {
-    mv -i $HOME/.delete/$dir_name/* ./
+    echo '---------------->>' >> ~/.delete/delete.log
+    echo 'UnDoRmFromThere:' $dir_name To $last_do_backup_dir >> ~/.delete/delete.log
+    mv -i $HOME/.delete/$dir_name/* $last_do_backup_dir
+    /bin/rm -rf $HOME/.delete/$dir_name
+    echo '<<----------------' >> ~/.delete/delete.log
+}
+movetowhere() {
+    echo $dir_name
 }
 toBackup()
 {
     dir_name=`date`
     mkdir -p $HOME/.delete/$dir_name
     last=$@
+    last_do_backup_dir=`pwd`
+    echo '----------------->>' >> ~/.delete/delete.log
+    echo BackupToThere: $dir_name >> ~/.delete/delete.log
     for thing in $@
     do
         echo $thing | grep '^-' > /dev/null
@@ -436,8 +449,13 @@ toBackup()
         then
             mv $thing $HOME/.delete/$dir_name
             echo mv $thing to ~/.delete/$dir_name, you can backup them
+            echo '' >> ~/.delete/delete.log
+            echo Name: $thing >> ~/.delete/delete.log
+            echo FromWhere: `pwd`/$thing >> ~/.delete/delete.log
+            echo MoveTo: $dir_name >> ~/.delete/delete.log
         fi
     done
+    echo '<<------------------' >> $HOME/.delete/delete.log
 
 }
 cleanDelete()
@@ -453,6 +471,7 @@ alias rm=toBackup
 alias lsdel='ls $HOME/.delete'
 # undo
 alias unrm=unDoRm
+alias lastrmtowhere=movetowhere
 # clean ~/.delete
 alias cleandel=cleanDelete
 # }}
@@ -463,8 +482,11 @@ alias runcpp='./a.out'
 #}}
 
 # for sock5{{
-alias startsock='export http_proxy=socks5://127.0.0.1:1080'
+alias startsock='export http_proxy=socks5://127.0.0.1:8123'
 # }}
-# 
-# 
-alias pythonn=python3.6
+#
+#
+
+alias sock=proxychains4
+alias update='sudo pacman -Syyu'
+alias sudorm='echo a'
