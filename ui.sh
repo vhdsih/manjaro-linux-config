@@ -91,9 +91,11 @@ config_vim() {
     fi
     # do config
     cp $relative_location/res/vim/.vimrc $HOME/
+    cp $relative_location/res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     cp -r $relative_location/res/vim/colors ~/.vim/
     vim +PluginInstall +qall
+    $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
     print_log "done"
 }
 # config zsh
@@ -148,9 +150,9 @@ GUI=$(zenity --list --checklist \
   --title="manjaro linux tools" \
   --text="请勾选需要的动作" \
   --column="选择" --column="编码"	--column="操作描述" \
-  FALSE "1" "配置pacman - 执行pacman-mirrors并且更换pacman.conf"  \
-  FALSE "2" "更新系统并安装gericom库的秘钥（用于安装papirus图标和arc-kde主题）" \
-  FALSE "3" "安装需要的软件" \
+  TRUE "1" "配置pacman - 执行pacman-mirrors并且更换pacman.conf"  \
+  TRUE "2" "更新系统并安装gericom库的秘钥（用于安装papirus图标和arc-kde主题）" \
+  TRUE "3" "安装需要的软件" \
   FALSE "4" "配置vim" \
   FALSE "5" "配置zsh" \
   FALSE "6" "安装windows字体 - 从github上clone，需要大量时间" \

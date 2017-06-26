@@ -43,6 +43,8 @@ install_software() {
             have_been_installed=`expr $have_been_installed + 1`
         else
             print_log "Error: $app"
+            echo $relative_location
+            notify-send -i 'error' -a "Error Information For Installing" $app 
             not_be_installed=`expr $not_be_installed + 1`
             sleep 1
         fi
