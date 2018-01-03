@@ -16,8 +16,11 @@ gitg
 google-chrome
 gvim
 htop
+libmpdclient
 megasync
 mlocate
+mpc
+mpd
 neofetch
 netease-cloud-music
 pandoc
@@ -42,10 +45,14 @@ ttf-wps-fonts
 typora
 unrar
 virtualbox
-visual-studio-code
+visual-studio-code-bin
 wireshark-qt
 wps-office
 xclip
 yaourt
 zeal
 zsh
+net-toolsi
+dnsutils
+inetutils
+iproute2

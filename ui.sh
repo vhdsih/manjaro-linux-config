@@ -217,7 +217,7 @@ then
   	echo "正在更新系统"
   	git clone https://github.com/dongchangzhang/fonts
     sudo chmod a+x fonts/setup.sh
-    sudo ./fonts/setup.sh
+    ./fonts/setup.sh
     echo 'wait 3s please...'
     sleep3
 
