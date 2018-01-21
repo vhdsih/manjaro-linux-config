@@ -1,14 +1,12 @@
 [global_config]
-  focus = system
-  suppress_multiple_term_dialog = True
-  title_transmit_bg_color = "#d30102"
-  use_custom_url_handler = True
+  borderless = True
+  dbus = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
 [keybindings]
 [layouts]
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -16,14 +14,17 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#1d2021"
-    background_darkness = 0.8
+    background_color = "#101010"
+    background_darkness = 0.83
     background_type = transparent
     copy_on_selection = True
-    cursor_color = "#2D2D2D"
-    font = Monaco 12
-    foreground_color = "#e53c00"
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
+    cursor_color = "#9e9ecb"
+    custom_command = tmux
+    font = Monaco 13
+    foreground_color = "#999993"
+    login_shell = True
+    palette = "#333333:#8c4665:#287373:#7c7c99:#395573:#5e468c:#31658c:#899ca1:#3d3d3d:#bf4d80:#53a6a6:#9e9ecb:#477ab3:#7e62b3:#6096bf:#c0c0c0"
+    scrollback_lines = 5000
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

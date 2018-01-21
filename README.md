@@ -8,33 +8,12 @@
 # 克隆到本地
 git clone git@github.com:dongchangzhang/manjaro-linux-config.git
 cd manjaro-linux-config
-chmod a+x ui.sh
+chmod a+x setup.sh
 # 初次运行建议选中更新系统选项
-./ui.sh
+./setup.sh
 ```
 
 ![ui](preview/ui.png)
-
-备用方案
-
-```shell
-# 查看功能
-chmod +x setup.sh
-./setup.sh -q
-------------------------------HELP------------------------------------
-|-1  install applications                                            |
-|-2  config zsh                                                      |
-|-3  config vim                                                      |
-|-4  visual studio code                                              |
-|-5  ssh for github                                                  |
-|-6  config etc files                                                |
-|-7  config mirrors list                                             |          
-|-A  do all for your system, if your system is new one               |
-----------------------------------------------------------------------
-bye
-# 选择你需要的功能运行
-./setup.sh -选项1选项2...
-```
 
 ### 功能特性
 
