@@ -11,7 +11,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="tjkirch_mod"
 # Uncomment the following line to use case-sensitive completion.
-#ZSH_THEME="sorin"
 ZSH_THEME="avit"
 # ZSH_THEME="aussiegeek"
 # ZSH_THEME="obraun"
@@ -409,14 +408,12 @@ export JAVA_HOME=/usr/lib/jvm/java8
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
-export TOMCAT_HOME=/opt/apache-tomcat-9.0.0.M10
-export NDK=/opt/android-ndk-r13b
 # }}
 # cuda for arch linux {{
 export CUDA_HOME=/opt/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:/usr/lib:/usr/local/lib"
 # }}
 # for rm {{
 # mkdir ~/.delete, when rm somethings ,mv them to here
@@ -489,4 +486,4 @@ alias startsock='export http_proxy=socks5://127.0.0.1:8123'
 
 alias sock=proxychains4
 alias update='sudo pacman -Syyu'
-alias sudorm='echo a'
+alias start_dont_starve='vblank_mode=0 primusrun steam steam://rungameid/219740'

@@ -49,8 +49,8 @@ set shortmess=atI
 set t_Co=256
 set laststatus=2
 set noshowmode
-set background=dark
-colorscheme dracula
+" set background=dark
+colorscheme slate
 let g:onedark_termcolors=256
 " color molokai
 
@@ -66,7 +66,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " add plugin at there
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -93,8 +92,8 @@ filetype plugin indent on
 " }}
 
 " settings for airline
-let g:airline_theme='sol'
-let g:airline_powerline_fonts=1
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts=0
 let g:solarized_termcolors=16
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -118,7 +117,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd guibg=red ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
-
 
 " settings for nerdcommenter
 " Add spaces after comment delimiters by default
@@ -217,10 +215,12 @@ func SetTitle()
         call setline(1, "/* author: dongchangzhang */")
         call append(line("."), "/* time: ".strftime("%c")." */")
         call append(line(".")+1, "")
-        call append(line(".")+2, "# include<stdio.h>")
+        call append(line(".")+2, "#include <stdio.h>")
         call append(line(".")+3, "")
     endif
     autocmd BufNewFile * normal G
 endfunc 
 "
 " }}
+
+

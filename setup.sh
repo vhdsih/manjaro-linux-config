@@ -3,6 +3,8 @@
 exec_location=`pwd`
 relative_location=`dirname $0`
 
+is_i3wm=0
+do_link=0
 LOG=$relative_location/log
 
 # print log
@@ -26,9 +28,7 @@ update_system() {
     clear
     print_log "update system..."
     check_software wget "pacman -S --noconfirm"
-    wget http://download.tuxfamily.org/gericom/gericom.asc
-    sudo pacman-key --add gericom.asc
-    sudo pacman -Syyu
+    sudo pacman -Syyu --noconfirm
     print_log "done"
 }
 # install software
@@ -133,57 +133,78 @@ config_i3() {
     print_log "do for i3wm"
     chmod +x $relative_location/manjaro_i3_conf_apply.sh
     $relative_location/manjaro_i3_conf_apply.sh
+
+    
     echo "done"
 }
 
 
 echo > $LOG
-
-
 clear
 
 GUI=$(zenity --list --checklist \
-  --height="400" \
-  --width="800" \
-  --title="manjaro linux tools" \
-  --text="请勾选需要的动作" \
-  --column="选择" --column="编码"	--column="操作描述" \
-  TRUE "1" "配置pacman - 执行pacman-mirrors并且更换pacman.conf"  \
-  TRUE "2" "更新系统并安装gericom库的秘钥（用于安装papirus图标和arc-kde主题）" \
-  TRUE "3" "安装需要的软件" \
-  FALSE "4" "配置vim" \
-  FALSE "5" "配置zsh" \
-  FALSE "6" "安装windows字体 - 从github上clone，需要大量时间" \
+  --height="500" \
+  --width="1000" \
+  --title="Manjaro Linux Tool" \
+  --text="Select your operation." \
+  --column="Y/N" --column="Code"	--column="description" \
+  FALSE "A" "## Are You Ranning the i3wm On your computer? ##" \
+  TRUE "B" "## Use Symbolic link ##" \
+  TRUE "1" "Configure Your Pacman (add archlinuxcn and run pacman-mirror)"  \
+  TRUE "2" "Update Your System" \
+  FALSE "3" "Install Softwares (res/app/pacman and res/app/yaourt" \
+  FALSE "4" "Configure Vim (my vimrc, vundle, youcompleteme, etc..." \
+  FALSE "5" "Configure Zsh (install oh-my-zsh and a new zshrc file)" \
+  FALSE "6" "Install Fonts of Windows (clone from my github)" \
+  FALSE "7" "Generate SSH-KEYRING (for github or other applications)" \
   --separator=" ");
 
 if [[ $GUI ]]
 then
+  if [[ $GUI == *"A"* ]]
+  then
+    clear
+  	echo "Your wm is i3wm, some applications for i3wm will be installed and some configuration for i3wm will be applied"
+    touch $relative_location/res/app/i3wm.flag
+    touch $relative_location/i3wm.flag
+    echo 'wait 3s please...'
+    sleep 3
+  fi
+
+  if [[ $GUI == *"B"* ]]
+  then
+    clear
+  	echo "Link Files..."
+    do_link=1
+    
+      
+    echo 'wait 3s please...'
+    sleep 3
+  fi
 
   if [[ $GUI == *"1"* ]]
   then
     clear
-  	echo "配置pacman"
+  	echo "Configure Pacman"
     config_etc
     config_mirrors
     echo 'wait 3s please...'
     sleep 3
-
   fi
 
    if [[ $GUI == *"2"* ]]
   then
     clear
-  	echo "正在更新系统"
+  	echo "Update System"
     update_system
     echo 'wait 3s please...'
     sleep 3
-
   fi
 
    if [[ $GUI == *"3"* ]]
   then
     clear
-  	echo "安装软件"
+  	echo "Install Applications"
     install_software
     echo 'wait 3s please...'
     sleep 3
@@ -192,38 +213,50 @@ then
    if [[ $GUI == *"4"* ]]
   then
     clear
-  	echo "配置vim"
+  	echo "Configure Vim"
     config_vim
     echo 'wait 3s please...'
     sleep 3
-
   fi
 
    if [[ $GUI == *"5"* ]]
   then
     clear
-  	echo "配置zsh"
+  	echo "Configure Zsh"
     config_zsh
     echo 'wait 3s please...'
     sleep 3
-
   fi
 
    if [[ $GUI == *"6"* ]]
   then
     clear
-  	echo "正在更新系统"
+  	echo "Install Windows Fonts"
   	git clone https://github.com/dongchangzhang/fonts
     chmod a+x fonts/setup.sh
     ./fonts/setup.sh
     echo 'wait 3s please...'
-    sleep3
-
+    sleep 3
   fi
 
-  # 完成通知
+  if [[ $GUI == *"7"* ]]
+  then
+    clear
+  	echo "Configure SSH-KEY"
+  	config_ssh
+    echo 'wait 3s please...'
+    sleep 3
+  fi
+
+  if [[ $GUI == *"A"* ]]
+  then
+    clear
+    rm -rf $relative_location/res/app/i3wm.flag
+    rm -rf $relative_location/i3wm.flag
+    echo "Configure i3wm"
+    config_i3
+  fi
   clear
-  notify-send -i utilities-terminal manjaro "配置完成，部分配置重启后生效。"
-
-
+  echo "done!!!"
+  notify-send -i utilities-terminal manjaro "FINISHED!!!"
 fi
