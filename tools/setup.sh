@@ -61,7 +61,7 @@ config_ssh() {
 config_mirrors() {
     clear
     print_log "config mirrors list"
-    sudo pacman-mirrors -g -c China
+    sudo pacman-mirrors -c China
     print_log "done"
 
 }

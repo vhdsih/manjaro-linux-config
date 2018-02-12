@@ -6,6 +6,7 @@ dir=$relative_location
 
 files=(
 /etc/pacman.conf
+/etc/proxychains.conf
 )
 
 backup() {
@@ -24,6 +25,7 @@ backup() {
 
 apply_backup() {
     sudo cp $dir/pacman.conf /etc
+    sudo cp $dir/proxychains.conf /etc
 }
 
 backup
