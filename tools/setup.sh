@@ -5,7 +5,7 @@ relative_location=$(cd "$(dirname "$0")"; pwd)
 
 is_i3wm=0
 do_link=0
-LOG=$relative_location/log
+LOG=$relative_location/../log
 
 # print log
 print_log() {
@@ -155,7 +155,23 @@ config_terminator() {
       mv $HOME/.config/terminator  $HOME/.config/terminator.bak
   fi
   ln -sfn $relative_location/../res/terminator $HOME/.config/terminator
+  echo "done"
   
+}
+
+config_fonts() {
+  print_log "do for fonts"
+  now=`pwd`
+  git clone https://github.com/dongchangzhang/fonts
+  sudo cp -r fonts/wf /usr/share/fonts/
+  cd /usr/share/fonts/wf
+  pwd 
+  sleep 10
+  sudo chmod 644 *
+  sudo mkfontscale
+  sudo mkfontdir
+  sudo fc-cache -fv
+  cd $now
 }
 
 echo > $LOG
@@ -240,9 +256,7 @@ then
   then
     clear
   	echo "Install Windows Fonts"
-  	git clone https://github.com/dongchangzhang/fonts
-    chmod a+x fonts/setup.sh
-    ./fonts/setup.sh
+  	config_fonts
     echo 'wait 3s please...'
     sleep 3
   fi
