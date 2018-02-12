@@ -1,16 +1,16 @@
 ## manjaro linux configuration
 
-用于快速配置manjaro linux（常用软件，vim，zsh，pacman\、terminator、i3wm）
+A tool for configuring manjaro linux（including i3wm, terminator, vim, zsh, fonts of windows, pacman and installing applications, etc.）, which uses symbolic link to manage the files of configuration.
 
 ### Install
 
 ```shell
- sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/setup.sh)"
+ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/install.sh)"
 ```
 
 ![ui](preview/ui.png)
 
-### 功能特性
+### Features
 
 1. 应用程序安装
 
@@ -98,7 +98,7 @@
    * Win + 1/2/3/4 进入第1/2/3/4个桌面
    * Win + Space或Alt + Space打开搜索
 
-### 小工具
+### Tools
 
 1. 程序列表整理、去重
 
