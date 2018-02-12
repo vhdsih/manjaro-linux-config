@@ -1,16 +1,11 @@
 ## manjaro linux configuration
 
-用于快速配置manjaro linux（常用软件，vim，zsh，pacman）
+用于快速配置manjaro linux（常用软件，vim，zsh，pacman\、terminator、i3wm）
 
-### 怎样使用
+### Install
 
 ```shell
-# 克隆到本地
-git clone git@github.com:dongchangzhang/manjaro-linux-config.git
-cd manjaro-linux-config
-chmod a+x setup.sh
-# 初次运行建议选中更新系统选项
-./setup.sh
+ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/setup.sh)"
 ```
 
 ![ui](preview/ui.png)

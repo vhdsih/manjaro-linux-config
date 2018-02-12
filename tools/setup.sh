@@ -1,7 +1,7 @@
 #!/bin/bash
 
 exec_location=`pwd`
-relative_location=`dirname $0`
+relative_location=$(cd "$(dirname "$0")"; pwd)
 
 is_i3wm=0
 do_link=0
@@ -35,16 +35,16 @@ update_system() {
 install_software() {
     clear
     print_log 'install software...'
-    chmod +x $relative_location/res/app/install.sh
-    $relative_location/res/app/install.sh
+    chmod +x $relative_location/../res/app/install.sh
+    $relative_location/../res/app/install.sh
     print_log "done"
 }
 # config etc files
 config_etc() {
     clear
     print_log "config etc..."
-    chmod +x $relative_location/res/etc/etc_conf_apply.sh
-    $relative_location/res/etc/etc_conf_apply.sh
+    chmod +x $relative_location/../res/etc/etc_conf_apply.sh
+    $relative_location/../res/etc/etc_conf_apply.sh
     print_log "done"
 
 }
@@ -52,8 +52,8 @@ config_etc() {
 config_ssh() {
     clear
     print_log "config ssh for github..."
-    chmod +x $relative_location/res/ssh/ssh.sh
-    $relative_location/res/ssh/ssh.sh
+    chmod +x $relative_location/../res/ssh/ssh.sh
+    $relative_location/../res/ssh/ssh.sh
     print_log "done"
 
 }
@@ -88,10 +88,10 @@ config_vim() {
         mv $HOME/.vim $HOME/.vim.bak
     fi
     # do config
-    cp $relative_location/res/vim/.vimrc $HOME/
-    cp $relative_location/res/vim/.ycm_extra_conf.py $HOME/
+    ln -sfn $relative_location/../res/vim/.vimrc $HOME/
+    ln -sfn $relative_location/../res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    cp -r $relative_location/res/vim/colors ~/.vim/
+    ln -sfn -r $relative_location/../res/vim/colors ~/.vim/
     vim +PluginInstall +qall
     $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
     print_log "done"
@@ -110,7 +110,7 @@ config_zsh() {
     fi
     # oh my zsh
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-    cp $relative_location/res/zsh/.zshrc ~/.zshrc
+    ln -sfn $relative_location/../res/zsh/.zshrc ~/.zshrc
     chsh -s /bin/zsh
 
     if [ $? = 0 ]
@@ -125,19 +125,38 @@ config_zsh() {
 config_vscode() {
     print_log "do for vscode"
     mkdir -p $HOME/.config/Code/User/
-    cp $relative_location/res/code/* $HOME/.config/Code/User/
+    cp $relative_location/../res/code/* $HOME/.config/Code/User/
     print_log "done"
 }
 # i3wm
 config_i3() {
     print_log "do for i3wm"
-    chmod +x $relative_location/manjaro_i3_conf_apply.sh
-    $relative_location/manjaro_i3_conf_apply.sh
-
+    # for .i3
+    if [ -d "$HOME/.i3" ]; then
+        print_log "mv $HOME/.i3 to $HOME/.i3.bak"
+        mv $HOME/.i3 $HOME/.i3.bak
+    fi
+    # for polybar
+    if [  -d "$HOME/.config/polybar" ]; then
+        print_log "mv $HOME/.config/polybar to $HOME/.config/polybar.bak"
+        mv $HOME/.config/polybar  $HOME/.config/polybar.bak
+    fi
     
+    ln -sfn $relative_location/../res/i3wm $HOME/.i3
+    ln -sfn $relative_location/../res/polybar $HOME/.config/polybar
     echo "done"
 }
 
+config_terminator() {
+  print_log "do for terminator"
+  # for terminator
+  if [  -d "$HOME/.config/terminator" ]; then
+      print_log "mv $HOME/.config/terminator to $HOME/.config/terminator.bak"
+      mv $HOME/.config/terminator  $HOME/.config/terminator.bak
+  fi
+  ln -sfn $relative_location/../res/terminator $HOME/.config/terminator
+  
+}
 
 echo > $LOG
 clear
@@ -149,7 +168,6 @@ GUI=$(zenity --list --checklist \
   --text="Select your operation." \
   --column="Y/N" --column="Code"	--column="description" \
   FALSE "A" "## Are You Ranning the i3wm On your computer? ##" \
-  TRUE "B" "## Use Symbolic link ##" \
   TRUE "1" "Configure Your Pacman (add archlinuxcn and run pacman-mirror)"  \
   TRUE "2" "Update Your System" \
   FALSE "3" "Install Softwares (res/app/pacman and res/app/yaourt" \
@@ -157,6 +175,7 @@ GUI=$(zenity --list --checklist \
   FALSE "5" "Configure Zsh (install oh-my-zsh and a new zshrc file)" \
   FALSE "6" "Install Fonts of Windows (clone from my github)" \
   FALSE "7" "Generate SSH-KEYRING (for github or other applications)" \
+  FALSE "8" "Configure Terminator" \
   --separator=" ");
 
 if [[ $GUI ]]
@@ -165,19 +184,8 @@ then
   then
     clear
   	echo "Your wm is i3wm, some applications for i3wm will be installed and some configuration for i3wm will be applied"
-    touch $relative_location/res/app/i3wm.flag
-    touch $relative_location/i3wm.flag
-    echo 'wait 3s please...'
-    sleep 3
-  fi
-
-  if [[ $GUI == *"B"* ]]
-  then
-    clear
-  	echo "Link Files..."
-    do_link=1
-    
-      
+    touch $relative_location/../res/app/i3wm.flag
+    touch $relative_location/../i3wm.flag
     echo 'wait 3s please...'
     sleep 3
   fi
@@ -248,15 +256,24 @@ then
     sleep 3
   fi
 
+  if [[ $GUI == *"8"* ]]
+  then
+    clear
+  	echo "Configure SSH-KEY"
+  	config_terminator
+    echo 'wait 3s please...'
+    sleep 3
+  fi
+
   if [[ $GUI == *"A"* ]]
   then
     clear
     rm -rf $relative_location/res/app/i3wm.flag
     rm -rf $relative_location/i3wm.flag
     echo "Configure i3wm"
-    config_i3
   fi
+
   clear
   echo "done!!!"
-  notify-send -i utilities-terminal manjaro "FINISHED!!!"
+  notify-send -i utilities-terminal manjaro "configuration of manjaro is done!"
 fi

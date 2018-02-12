@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -11,9 +10,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="tjkirch_mod"
 # Uncomment the following line to use case-sensitive completion.
-ZSH_THEME="avit"
+# ZSH_THEME="avit"
 # ZSH_THEME="aussiegeek"
-# ZSH_THEME="obraun"
+ZSH_THEME="fino-time"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case

@@ -4,7 +4,7 @@ autojump
 clang
 clion
 cmake
-ctag
+ctags
 dnsutils
 electronic-wechat-git
 evince
@@ -25,7 +25,7 @@ megasync
 mlocate
 neofetch
 netease-cloud-music
-net-toolsi
+net-tools
 nodejs
 npm
 pandoc

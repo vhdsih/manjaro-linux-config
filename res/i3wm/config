@@ -33,7 +33,7 @@ bindsym $mod+Return exec terminator #terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco -nb '#282a36' -nf '#f8f8f2'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco:Bold -nb '#465c66' -nf '#f8f8f2'
 #
 # bindsym $mod+d exec --no-startup-id rofi -show run -modi run -location 1 -width 100 \
 #          -lines 2 -line-margin 0 -line-padding 1 \
