@@ -1,7 +1,7 @@
 [global_config]
-  borderless = True
   dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  inactive_color_offset = 1.0
 [keybindings]
 [layouts]
   [[default]]
@@ -14,15 +14,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#300a24"
+    background_color = "#002b36"
     background_darkness = 0.9
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#16afca"
-    cursor_shape = ibeam
     custom_command = tmux
     font = Source Code Pro 13
-    foreground_color = "#ffffff"
+    foreground_color = "#839496"
     login_shell = True
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_lines = 5000

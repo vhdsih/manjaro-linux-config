@@ -10,9 +10,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="tjkirch_mod"
 # Uncomment the following line to use case-sensitive completion.
-# ZSH_THEME="avit"
+ZSH_THEME="avit"
 # ZSH_THEME="aussiegeek"
-ZSH_THEME="fino-time"
+# ZSH_THEME="fino-time"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case

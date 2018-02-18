@@ -282,8 +282,8 @@ then
   if [[ $GUI == *"A"* ]]
   then
     clear
-    rm -rf $relative_location/res/app/i3wm.flag
-    rm -rf $relative_location/i3wm.flag
+    rm -rf $relative_location/../res/app/i3wm.flag
+    rm -rf $relative_location/../i3wm.flag
     echo "Configure i3wm"
   fi
 
