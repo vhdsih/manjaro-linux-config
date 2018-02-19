@@ -66,25 +66,27 @@ call vundle#rc()
 
 " add plugin at there
 Plugin 'VundleVim/Vundle.vim'
+" airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'jiangmiao/auto-pairs'
+Bundle 'ShowTrailingWhitespace'
 Plugin 'tpope/vim-fugitive'
-Plugin 'djoshea/vim-matlab'
-Plugin 'djoshea/vim-matlab-fold'
-Plugin 'dracula/vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'docunext/closetag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
-Plugin 'jiangmiao/auto-pairs'
-Bundle 'ShowTrailingWhitespace'
 Plugin 'Valloric/YouCompleteMe'
+" color
+Plugin 'dracula/vim'
 " plugin end here
 call vundle#end()
 filetype plugin indent on
@@ -109,13 +111,13 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 " settings for IndentGuides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-hi IndentGuidesOdd guibg=red ctermbg=3
-hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors=1
+let g:indent_guides_guide_size=1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
+" hi IndentGuidesOdd guibg=red ctermbg=1
+" hi IndentGuidesEven guibg=green ctermbg=1
 
 " settings for nerdcommenter
 " Add spaces after comment delimiters by default

@@ -196,7 +196,7 @@ limit coredumpsize 0
 
 #Emacs风格 键绑定
 # bindkey -e
-#bindkey -v
+bindkey -v
 #设置 [DEL]键 为向后删除
 #bindkey "\e[3~" delete-char
 
@@ -486,3 +486,13 @@ alias startsock='export http_proxy=socks5://127.0.0.1:8123'
 alias sock=proxychains4
 alias update='sudo pacman -Syyu'
 alias start_dont_starve='vblank_mode=0 primusrun steam steam://rungameid/219740'
+
+VIMODE='-- INSERT --'
+function zle-line-init zle-keymap-select {
+    VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    zle reset-prompt
+}
+zle -N zle-line-init 
+zle -N zle-keymap-select
+
+RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
