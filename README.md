@@ -1,6 +1,8 @@
+* [中文](README.cn.md)
+
 manjaro-linux-config is a tool for configuring manjaro linux（including i3wm, terminator, vim, zsh, fonts of windows, pacman and installing applications, etc.）, which uses symbolic link to manage the files of configuration.
 
-##### install
+##### Installation
 
 ```shell
 # run this cmd in your terminal
@@ -11,7 +13,7 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
 ![ui](preview/ui.png)
 
-##### features
+##### Features
 
 1. applications
 
@@ -87,7 +89,7 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
    ![i3wm](preview/i3wm.png)
 
-##### tools
+##### Tools
 
 1. sort the applications of {pacman, pacman-i3wm, yaourt, yaourt-i3wm}
 
@@ -97,5 +99,6 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
    use pigz to backup the files of home, the runable file is ~/.manjaro-linux-config/tools/backup.sh
 
-
+##### Licence
+   MIT
 

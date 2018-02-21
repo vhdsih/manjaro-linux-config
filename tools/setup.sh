@@ -3,8 +3,6 @@
 exec_location=`pwd`
 relative_location=$(cd "$(dirname "$0")"; pwd)
 
-is_i3wm=0
-do_link=0
 LOG=$relative_location/../log
 
 # print log
@@ -202,6 +200,7 @@ then
   	echo "Your wm is i3wm, some applications for i3wm will be installed and some configuration for i3wm will be applied"
     touch $relative_location/../res/app/i3wm.flag
     touch $relative_location/../i3wm.flag
+    config_i3
     echo 'wait 3s please...'
     sleep 3
   fi
@@ -289,5 +288,5 @@ then
 
   clear
   echo "done!!!"
-  notify-send -i utilities-terminal manjaro "configuration of manjaro is done!"
+  notify-send -i manjaro "configuration of manjaro is done!"
 fi

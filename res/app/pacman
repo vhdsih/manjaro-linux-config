@@ -13,6 +13,7 @@ fcitx
 fcitx-configtool
 fcitx-im
 fcitx-sogoupinyin
+fontweak
 gcc-multilib
 git
 gitg
@@ -20,6 +21,7 @@ google-chrome
 htop
 inetutils
 iproute2
+ipython
 libmpdclient
 megasync
 mlocate
@@ -62,4 +64,3 @@ xclip
 yaourt
 zeal
 zsh
-fontweak

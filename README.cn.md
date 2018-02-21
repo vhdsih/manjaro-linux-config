@@ -1,0 +1,1 @@
+manjaro-linux-config是一个帮助配置脚本

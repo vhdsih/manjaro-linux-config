@@ -496,3 +496,4 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
+eval $(thefuck --alias)
