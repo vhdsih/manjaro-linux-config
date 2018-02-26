@@ -196,7 +196,7 @@ limit coredumpsize 0
 
 #Emacs风格 键绑定
 # bindkey -e
-bindkey -v
+# bindkey -v
 #设置 [DEL]键 为向后删除
 #bindkey "\e[3~" delete-char
 
@@ -409,9 +409,9 @@ export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 # }}
 # cuda for arch linux {{
-export CUDA_HOME=/opt/cuda
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
+# export CUDA_HOME=/opt/cuda
+# export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+# export PATH="$CUDA_HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:/usr/lib:/usr/local/lib"
 # }}
 # for rm {{
@@ -487,13 +487,4 @@ alias sock=proxychains4
 alias update='sudo pacman -Syyu'
 alias start_dont_starve='vblank_mode=0 primusrun steam steam://rungameid/219740'
 
-VIMODE='-- INSERT --'
-function zle-line-init zle-keymap-select {
-    VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    zle reset-prompt
-}
-zle -N zle-line-init 
-zle -N zle-keymap-select
-
-RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
 eval $(thefuck --alias)
