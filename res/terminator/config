@@ -2,7 +2,9 @@
   dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   inactive_color_offset = 1.0
+  title_use_system_font = False
 [keybindings]
+  help = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -20,7 +22,7 @@
     copy_on_selection = True
     cursor_color = "#16afca"
     custom_command = tmux
-    font = Source Code Pro 13
+    font = Monaco 13
     foreground_color = "#839496"
     login_shell = True
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"

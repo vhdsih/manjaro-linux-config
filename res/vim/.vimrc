@@ -50,7 +50,7 @@ set t_Co=256
 set laststatus=2
 set noshowmode
 set background=dark
-colorscheme onedark
+colorscheme desert
 let g:onedark_termcolors=256
 
 filetype on
@@ -79,12 +79,14 @@ Bundle 'ShowTrailingWhitespace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'docunext/closetag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/taglist.vim'
 " color
 Plugin 'dracula/vim'
 " plugin end here
@@ -153,7 +155,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 set completeopt=longest,menu
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif	
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"	
-let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion=['c-n']
 " let g:ycm_key_list_select_completion = ['Down']
 let g:ycm_key_list_previous_completion=['<c-p>']
 " let g:ycm_key_list_previous_completion = ['<Up>']
@@ -172,12 +174,25 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+map <F6> :CtrlPFunky<CR>
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_syntax_highlight = 1
+
+map <F5> :Tlist<CR>
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+
+
 " compile and run {{
 map <F9> :call CompileRun()<CR>
 func! CompileRun()
     exec "w"
     if &filetype == 'c'
-        exec "!gcc % -o %<"
+        exec "!gcc % -o %< -lm"
         exec "! ./%<"
     elseif &filetype == 'cpp'
         exec "!g++ -std=c++11 % -o %<"
