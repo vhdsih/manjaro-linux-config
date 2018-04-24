@@ -8,8 +8,14 @@ manjaro-linux-config is a tool for configuring manjaro linux（including i3wm, t
 # run this cmd in your terminal
 sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/install.sh)"
 # then select your operation as follows
-# all files will be saved into .manjaro-linux-config, once you update your files, such as .zshrc, .vimrc, your change will also be applied in .manjaro-linux-config, you can backup this dir to save your configration.
 ```
+
+* NOTICE
+> all files will be saved into .manjaro-linux-config
+> once you update your files
+> such as .zshrc, .vimrc
+> your change will also be applied in .manjaro-linux-config
+> you can backup this dir to save your configration
 
 ![ui](preview/ui.png)
 
