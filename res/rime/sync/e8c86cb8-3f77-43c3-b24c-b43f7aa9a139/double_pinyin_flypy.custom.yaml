@@ -1,0 +1,138 @@
+# double_pinyin_flypy.custom.yaml
+#
+# 補靪功能：將自然碼雙拼的詞庫修改爲朙月拼音擴充詞庫
+#
+# 作者：瑾昀 <cokunhui@gmail.com>
+#
+# 部署位置：
+# ~/.config/ibus/rime  (Linux)
+# ~/Library/Rime  (Mac OS)
+# %APPDATA%\Rime  (Windows)
+#
+# 於重新部署後生效
+#
+#
+# 注意：本補靪適用於所有雙拼方案（「自然碼雙拼」、「智能ABC雙拼」、「小鶴雙拼」、「MSPY雙拼」）。
+# 只須將本 custom.yaml 的前面名字改爲對應的輸入方案名字然後放入用戶文件夾重新部署即可。如 double_pinyin_abc.custom.yaml。
+# 朙月拼音用戶請使用 luna_pinyin.custom.yaml。
+#
+#
+# 附雙拼方案與其對應的 id 一覽表：
+# 輸入方案	id
+# 自然碼雙拼	double_pinyin
+# 智能ABC雙拼	double_pinyin_abc
+# 小鶴雙拼	double_pinyin_flypy
+# MSPY雙拼	double_pinyin_mspy
+#
+
+patch:
+  # 載入朙月拼音擴充詞庫
+  "translator/dictionary": luna_pinyin.extended
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: ["中文", "西文"]
+    - name: full_shape
+      states: ["半角", "全角"]
+    - name: zh_simp
+      reset: 1
+      states: ["漢字", "汉字"]
+    - name: ascii_punct
+      states: ["。，", "．，"]
+
+  simplifier:
+    option_name: zh_simp
+    
+  engine:
+    processors:
+      - ascii_composer
+      - recognizer
+      - key_binder
+      - speller
+      - punctuator
+      - selector
+      - navigator
+      - express_editor
+    segmentors:
+      - ascii_segmentor
+      - matcher
+      - abc_segmentor
+      - punct_segmentor
+      - fallback_segmentor
+    translators:
+      - punct_translator
+      - table_translator@custom_phrase
+      - reverse_lookup_translator
+      - script_translator
+    filters:
+      - simplifier
+      - uniquifier
+
+#  符号快速输入和部分符号的快速上屏
+#  punctuator:
+#    import_preset: symbols
+#    half_shape:
+#      "#": "#"
+#      "`": "`"
+#      "~": "~"
+#      "@": "@"
+#      "=": "="
+#      "/": ["/", "÷"]
+#      '\': "、"
+#      "'": {pair: ["「", "」"]}
+#      "[": ["【", "["]
+#      "]": ["】", "]"]
+#      "$": ["¥", "$", "€", "£", "¢", "¤"]
+#      "<": ["《", "〈", "«", "<"]
+#      ">": ["》", "〉", "»", ">"]
+
+  recognizer:
+    patterns:
+      email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+      uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+      url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+      punct: "^/([a-z]+|[0-9]0?)$"
+
+ # 模糊拼音
+  'speller/algebra':
+    - erase/^xx$/                      # 第一行保留
+
+    - derive/^([zcs])h/$1/ 
+    - derive/^([zcs])([^h])/$1h$2/ 
+    - derive/^n/l/ 
+    - derive/^l/n/ 
+    - derive/^([bpmf])eng$/$1ong/ 
+    - derive/([ei])n$/$1ng/ 
+    - derive/([ei])ng$/$1n/ 
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe].*)$/o$1/
+    - xform/^([ae])(.*)$/$1$1$2/
+    - xform/iu$/Q/
+    - xform/[iu]a$/W/
+    - xform/er$|[uv]an$/R/
+    - xform/[uv]e$/T/
+    - xform/v$|uai$/Y/
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/[uv]n$/P/
+    - xform/i?ong$/S/
+    - xform/[iu]ang$/D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/iao$/C/
+    - xform/(.)ao$/$1K/
+    - xform/(.)ai$/$1L/
+    - xform/(.)ei$/$1Z/
+    - xform/ie$/X/
+    - xform/ui$/V/
+    - derive/T$/V/
+    - xform/(.)ou$/$1B/
+    - xform/in$/N/
+    - xform/ing$/;/
+    - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/

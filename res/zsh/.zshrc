@@ -412,7 +412,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 # export CUDA_HOME=/opt/cuda
 # export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 # export PATH="$CUDA_HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:/usr/lib:/usr/local/lib"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:/usr/lib:/usr/local/lib"
 # }}
 # for rm {{
 # mkdir ~/.delete, when rm somethings ,mv them to here
@@ -480,11 +480,9 @@ alias runcpp='./a.out'
 # for sock5{{
 alias startsock='export http_proxy=socks5://127.0.0.1:8123'
 # }}
-#
-#
-
-alias sock=proxychains4
-alias update='sudo pacman -Syyu'
-alias start_dont_starve='vblank_mode=0 primusrun steam steam://rungameid/219740'
-
 eval $(thefuck --alias)
+alias 'pip install'='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
+alias 'opencvrun=g++ `pkg-config --cflags --libs opencv`'
+
+# scroll lock
+xmodmap -e 'add mod3 = Scroll_Lock'

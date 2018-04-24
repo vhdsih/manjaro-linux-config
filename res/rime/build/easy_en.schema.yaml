@@ -1,0 +1,80 @@
+__build_info:
+  rime_version: 1.2.10
+  timestamps:
+    default: 1475247145
+    default.custom: 1520757004
+    easy_en.custom: 0
+    easy_en.schema: 1520756369
+engine:
+  filters:
+    - uniquifier
+  processors:
+    - ascii_composer
+    - key_binder
+    - speller
+    - recognizer
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - matcher
+    - ascii_segmentor
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - table_translator
+    - punct_translator
+key_binder:
+  bindings:
+    - {accept: "Shift+space", toggle: full_shape, when: always}
+    - {accept: minus, send: Page_Up, when: has_menu}
+    - {accept: equal, send: Page_Down, when: has_menu}
+  import_preset: default
+menu:
+  page_size: 9
+punctuator:
+  half_shape:
+    "!": "！"
+    "\"": {pair: ["“", "”"]}
+    "$": "￥"
+    "'": {pair: ["‘", "’"]}
+    ",": "，"
+    .: "。"
+    "/": "/"
+    ":": "："
+    ";": "；"
+    "<": "《"
+    ">": "》"
+    "?": "？"
+    "[": "【"
+    "\\": "、"
+    "]": "】"
+    "^": "……"
+    _: "——"
+    "|": "·"
+  import_preset: default
+recognizer:
+  import_preset: default
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+schema:
+  author:
+    - "Patrick <ipatrickmac@gmail.com>"
+  description: "Easy English"
+  name: "Easy English"
+  schema_id: easy_en
+  version: 0.2
+speller:
+  alphabet: "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA-_"
+  delimiter: " '"
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [On, Off]
+translator:
+  dictionary: easy_en
+  spelling_hints: 9

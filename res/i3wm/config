@@ -1,6 +1,6 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+exec_always --no-startup-id feh --bg-scale "/home/z/Pictures/bg.jpg"
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -33,7 +33,7 @@ bindsym $mod+Return exec terminator #terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco:Bold -nb '#465c66' -nf '#f8f8f2'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco:Bold -nb '#303030' -nf '#f8f8f2'
 #
 # bindsym $mod+d exec --no-startup-id rofi -show run -modi run -location 1 -width 100 \
 #          -lines 2 -line-margin 0 -line-padding 1 \
@@ -50,6 +50,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym XF86AudioRaiseVolume exec amixer set Master playback 5+
+bindsym XF86AudioLowerVolume exec amixer set Master playback 5-
+bindsym XF86AudioMute exec amixer set Master toggle
+
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol

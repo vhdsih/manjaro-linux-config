@@ -1,0 +1,114 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# f_myphrases.dict.yaml
+#
+
+---
+name: f_myphrases
+version: "2016.07.27"
+sort: by_weight
+use_preset_vocabulary: true
+...
+
+# 无码表的词库
+
+亦可赛艇
+抹大拉的玛丽亚
+
+# 有码表的词库, 格式
+# (注意是用制表符分割)：
+# 文字	编码	频次(可省略)
+
+lithromantic	lithromantic	10000
+Miami	miami	10000
+Hong Kong	h k	10000
+宇智波带土	yu zhi bo dai tu	10000
+
+🆘	s o s	10000
+
+清风不识字何故乱翻书	q f b s z h g l f s	10000
+清风不识字何故乱翻书	qing feng bu shi zi he gu luan fan shu	10000
+
+
+# emoji
+
+❤️	heart
+❤️	xin
+🚀	rocket
+💋	kiss
+😁	kai xin
+😃	kan
+😄	xiao
+😊	xiao
+🎈	qi qiu
+💊	yao wan
+🍀	si ye cao
+🌚🌝	jiong
+🆘	sos
+🎵	yin yue
+🏀	lan qiu
+🏆	guan jun
+☀️	tai yang
+🌙	yue liang
+🍭	bang bang tang
+
+# 颜文字
+
+d=====(￣▽￣*)b	ding
+(￣ε(#￣)	va
+<( ￣＾￣)>	va
+o(￣ヘ￣o＃)	va
+<(￣︶￣)>	va
+╮(╯_╰)╭	va
+╮(￣▽￣)╭	va
+／人◕‿‿◕人＼	va
+<(▰˘◡˘▰)>	va
+<(= `０‘)ノ	va
+
+# 常见符号
+
+⌘	cmd
+⏎	return
+⏏	eject
+⇪	cap
+⇧	shift
+⌥	opt
+⌃	ctrl
+⌫	del
+°	degree
+℃	degreec
+℉	degreef
+✓	right	10000
+✓	dui gou	10001
+✗	wrong	10000
+✗	shan chu	10000
+✗	cha	10000
+✗	cha zi	10000
+°	du	10000
+℉	hua shi du
+℃	she shi du
+
+#
+
+♂	nan	10000
+♀	nv	10000
+↑	shang	10000
+↓	xia	10000
+♥	xin	10000
+★	xing	10000
+✩	xing	10000
+♪	yin fu	10000
+♫	yin fu	10000
+→	you	10000
+↗	you shang	10000
+↘	you xia	10000
+←	zuo	10000
+↖	zuo shang	10000
+↙	zuo xia	10000
+√	gou	10000
+×	cha	10000
+囗	kuang	10000
+⑨	jiu	10000
+
+#	...	10000

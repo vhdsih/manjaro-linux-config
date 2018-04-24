@@ -145,6 +145,24 @@ config_i3() {
     echo "done"
 }
 
+# install i3wm
+install_i3() {
+    print_log "install i3wm"
+    # for .i3
+    if [ -d "$HOME/.config/i3" ]; then
+        print_log "mv $HOME/.config/i3 to $HOME/.config/i3.bak"
+        mv $HOME/.config/i3 $HOME/.config/i3.bak
+    fi
+    # for polybar
+    if [  -d "$HOME/.config/polybar" ]; then
+        print_log "mv $HOME/.config/polybar to $HOME/.config/polybar.bak"
+        mv $HOME/.config/polybar  $HOME/.config/polybar.bak
+    fi
+    $relative_location/install-i3wm.sh
+    ln -sfn $relative_location/../res/i3wm $HOME/.config/i3
+    ln -sfn $relative_location/../res/polybar $HOME/.config/polybar
+    echo "done"
+}
 config_terminator() {
   print_log "do for terminator"
   # for terminator
@@ -190,6 +208,7 @@ GUI=$(zenity --list --checklist \
   FALSE "6" "Install Fonts of Windows (clone from my github)" \
   FALSE "7" "Generate SSH-KEYRING (for github or other applications)" \
   FALSE "8" "Configure Terminator" \
+  FALSE "9" "Install I3wm If You Don't Have It In Your System" \
   --separator=" ");
 
 if [[ $GUI ]]
@@ -274,6 +293,15 @@ then
     clear
   	echo "Configure SSH-KEY"
   	config_terminator
+    echo 'wait 3s please...'
+    sleep 3
+  fi
+
+  if [[ $GUI == *"9"* ]]
+  then
+    clear
+  	echo "Installing I3wm..."
+    install_i3
     echo 'wait 3s please...'
     sleep 3
   fi

@@ -1,0 +1,21 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin.userdb
+#@/db_type	userdb
+#@/rime_version	1.2.10
+#@/tick	13
+#@/user_id	e8c86cb8-3f77-43c3-b24c-b43f7aa9a139
+biao ti 	標題	c=1 d=1 t=13
+hen jiu 	很久	c=1 d=1 t=4
+le 	了	c=1 d=1 t=8
+mei you 	沒有	c=1 d=1 t=5
+qu 	去	c=1 d=1 t=2
+shen me 	什麼	c=1 d=1 t=7
+sheng huo 	生活	c=1 d=1 t=3
+shi ni de 	是你的	c=0 d=0.1 t=0
+wo zheng 	我正	c=0 d=0.1 t=0
+wo zheng shi ni de 	我正是你的	c=1 d=1 t=1
+xie guo 	寫過	c=1 d=1 t=6
+yi ge 	一個	c=1 d=1 t=12
+yin yong 	引用	c=1 d=1 t=10
+zhe shi 	這是	c=1 d=1 t=11
+zhe shi yi ge 	這是一個	c=1 d=1 t=9

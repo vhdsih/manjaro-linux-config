@@ -50,7 +50,7 @@ set t_Co=256
 set laststatus=2
 set noshowmode
 set background=dark
-colorscheme desert
+colorscheme molokai
 let g:onedark_termcolors=256
 
 filetype on
@@ -95,7 +95,7 @@ filetype plugin indent on
 " }}
 
 " settings for airline
-let g:airline_theme='minimalist'
+let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=0
 let g:solarized_termcolors=16
 let g:airline#extensions#tabline#enabled = 1
@@ -150,6 +150,8 @@ let g:UltiSnipsJumpBackwardTrigger="<leader>p"
 " syntastic
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_cpp_compiler = "g++"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -stdlib=libc++"
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 set completeopt=longest,menu
@@ -159,7 +161,7 @@ let g:ycm_key_list_select_completion=['c-n']
 " let g:ycm_key_list_select_completion = ['Down']
 let g:ycm_key_list_previous_completion=['<c-p>']
 " let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=1
 let g:ycm_key_invoke_completion = '<C-a>'
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_min_num_of_chars_for_completion=2
@@ -180,7 +182,7 @@ map <F6> :CtrlPFunky<CR>
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_syntax_highlight = 1
 
-map <F5> :Tlist<CR>
+map <F2> :Tlist<CR>
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1

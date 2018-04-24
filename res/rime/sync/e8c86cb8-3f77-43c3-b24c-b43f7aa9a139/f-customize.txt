@@ -1,0 +1,318 @@
+
+version: 0.83(20160727)
+
+说明：
+以 ori_ 开头的文件，是 Rime默认配置文件 可作参考
+
+1.候选词几个
+
+# default.custom.yaml
+
+patch:
+  menu:
+    page_size: 5
+
+
+
+2.竖列 & 关闭内嵌编码
+
+# squirrel.custom.yaml
+
+patch:
+  style/horizontal: true
+  style/inline_preedit: false # 内嵌编码
+
+
+3. 我的皮肤
+
+# squirrel.custom.yaml
+
+patch:
+  us_keyboard_layout: true
+  style/color_scheme: my_clean_white
+  style/display_tray_icon: true
+  style/font_face: "Hiragino Sans GB W3"
+  style/spacing: 5
+
+  preset_color_schemes:
+    my_clean_white:
+      author: "Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」"
+      back_color: 0xeeeeee
+      border_height: 6
+      border_width: 6
+      candidate_format: "%c %@ "
+      candidate_text_color: 0x000000
+      comment_text_color: 0x808080
+      corner_radius: 6
+      font_point: 16
+      hilited_candidate_back_color: 0xeeeeee
+      hilited_candidate_label_color: 0xa0c98915
+      hilited_candidate_text_color: 0xc98915
+      hilited_text_color: 0x000000
+      horizontal: true
+      label_color: 0x888888
+      label_font_point: 12
+      name: "简约白／Clean White"
+      text_color: 0x808080
+
+
+4. 自动在某些APP里用英文输入
+
+# squirrel.custom.yaml
+
+patch:
+  app_options:
+    # 右键『应用.app』-> 显示包内容 Contents/Info.plist -> BundleIdentifier
+    com.apple.dt.Xcode:
+      ascii_mode: true
+    com.apple.Spotlight:
+      ascii_mode: true
+    com.apple.Terminal:
+      ascii_mode: true
+      no_inline: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+    #
+    com.alfredapp.Alfred:
+      ascii_mode: true
+    com.runningwithcrayons.Alfred-2:
+      ascii_mode: true
+    com.blacktree.Quicksilver:
+      ascii_mode: true
+    #
+    org.vim.MacVim:
+      ascii_mode: true
+      no_inline: true
+    #com.barebones.textwrangler:
+    #  ascii_mode: true
+    #com.macromates.TextMate.preview:
+    #  ascii_mode: true
+    #com.sublimetext.2:
+    #  ascii_mode: true
+    #org.gnu.Aquamacs:
+    #  ascii_mode: true
+    #org.gnu.Emacs:
+    #  ascii_mode: true
+
+
+
+11. 上屏规则
+
+# default.custom.yaml
+
+patch:
+  ascii_composer:
+    good_old_caps_lock: true
+    switch_key:
+      Shift_L: commit_code
+      Shift_R: commit_code
+      Control_L: noop
+      Control_R: noop
+      Caps_Lock: noop
+      Eisu_toggle: clear
+
+
+12. 符号
+
+# default.custom.yaml
+
+patch:
+  punctuator:
+    half_shape:
+    # 列出和 英文标点 不同的 标点 (即打中文时需要 "特别改" 的标点)
+    # 常用标点: 冒号 分号 顿号 名字分词号 逗号 句号 问号 感叹号 钱号 破折号 省略号
+    # 成对标点: 双引号 单引号 书名号 括号
+
+      # 常用标点
+      ':' : '：'
+      ';' : '；'
+      '\' : '、'
+      '/' : '/'
+      '|' : '·'
+      ',' : '，'
+      '.' : '。'
+      '?' : '？'
+      '!' : '！'
+      '$' : '￥'
+      '_' : '——'
+      '^' : '……'
+
+      # 成对标点
+      '''' : { pair: [ '‘', '’' ] }
+      '"' : { pair: [ '“', '”' ] }
+      '<' : '《'
+      '>' : '》'
+      '[' : '【'
+      ']' : '】'
+      #'(' : '（'
+      #')' : '）'
+
+
+如果不灵，则把 luna_pinyin_simp.custom.yaml 里的 punctuator 部分注释掉 
+
+13.候选词翻页快捷键
+
+# default.custom.yaml
+
+patch:
+  key_binder:
+    bindings:
+      - { when: has_menu, accept: minus, send: Page_Up }
+      - { when: has_menu, accept: equal, send: Page_Down }
+
+
+14.正體中文的啓用
+
+临时繁体输入：ctrl+` 选择 漢字
+一直繁体输入：ctrl+` 选择 朙月拼音·臺灣正體。临时简体输入 (ctrl+` 选择 汉字)
+
+
+21. emoji 加入 (增强包已自带)
+
+本增强包 使用的是这里的 ( https://www.v2ex.com/t/58428 ) 的emoji包，基本上是网络上最全的emoji包
+如果有更新的，请下载之后放到 ~/Library/Rime 并命名为 luna_pinyin.emoji.dict.yaml
+
+22. 双拼模糊音 (增强包已自带)
+
+配置见 double_pinyin_flypy.custom.yaml
+参考 http://blog.yesmryang.net/rime-setting/
+
+
+23. 加入自定义的词典
+
+# luna_pinyin.extended.dict.yaml
+
+import_tables: 追加
+  - f_myphrases
+  - f_mysecretphrases
+
+然后
+cd ~/Library/Rime
+touch f_myphrases.dict.yaml 并写入
+
+```
+
+---
+name: f_myphrases
+version: "2016.06.17"
+sort: by_weight
+use_preset_vocabulary: false
+...
+
+# 无码表的词库
+
+亦可赛艇
+抹大拉的玛丽亚
+
+# 有码表的词库, 格式
+# (注意是用制表符分割)：
+# 文字	编码	频次(可省略)
+
+lithromantic	lithromantic	10000
+http	http
+https	https
+API	api	10000
+BBC	bbc	10000
+GSW	gsw
+Golden State Warriors	gsw
+JavaScript	js	10000
+Markdown	md	10000
+NBA	nba	10000
+OS X	osx	10000
+PSP	psp	10000
+QQ	qq	10000
+TV	tv	10000
+v2ex	vtex	10000
+V2EX	vtex	10001
+Wiki	wiki	10000
+Wikipedia	wikipedia	10000
+Xbox	xbox	10000
+Rails	rails	10000
+Ruby on Rails	ror	10000
+清风不识字何故乱翻书	qingfengbushiziheguluanfanshu
+清风不识字何故乱翻书	qfbszhglfsq
+
+# emoji
+
+❤️	heart
+❤️	xin	1
+🚀	rocket
+💋	kiss
+😁	kaixin	1
+😃	kan	1
+😄	xiao	1
+😊	xiao	1
+🎈	qiqiu
+💊	yw
+💊	yaowan
+🍀	syc
+🍀	siyecao
+🌚🌝	jiong
+🆘	sos
+🎵	yy
+🎵	yinyue
+⚽	zuqiu
+⚽	zq
+🏀	lanqiu
+🏀	lq
+🏆	gj
+🏆	guanjun
+☀️	ty
+☀️	taiyang
+🌙	yueliang
+🌙	yl
+🍭	bbt
+🍭	bangbangtang
+
+# 常见符号
+
+⌘	cmd
+⏎	return
+⏏	eject
+⇪	cap
+⇧	shift
+⌥	opt
+⌃	ctrl
+⌫	del
+°	degree
+℃	degreec
+℉	degreef
+✓	right	10000
+✓	duigou	10001
+✗	wrong	10000
+✗	shanchu	10000
+✗	cha	10000
+✗	chazi	10000
+°	du	10000
+℉	huashidu
+℃	sheshidu
+
+#	...	10000
+
+```
+
+
+
+
+touch f_mysecretphrases.dict.yaml 并写入
+
+```
+# Rime dictionary
+# encoding: utf-8
+#
+# f_mysecretphrases.dict.yaml
+#
+
+---
+name: f_mysecretphrases
+version: "2016.06.17"
+sort: by_weight
+use_preset_vocabulary: false
+...
+
+小明
+xiaoming	name	10000
+xiaoming@gmail.com	gmail	10000
+
+
+```

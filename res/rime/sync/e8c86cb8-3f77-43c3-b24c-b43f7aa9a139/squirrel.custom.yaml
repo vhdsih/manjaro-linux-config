@@ -1,0 +1,144 @@
+# squirrel.custom.yaml
+# encoding: utf-8
+
+patch:
+
+  show_notifications_when: appropriate  # 状态通知，适当，也可设为全开（always）全关（never）
+
+  style/horizontal: true
+  style/inline_preedit: false # 内嵌编码
+  
+  # 输入法面板细节相关
+  
+  us_keyboard_layout: true
+  style/display_tray_icon: true
+  style/font_face: "Hiragino Sans GB W3"
+  style/spacing: 5
+
+  # 输入法在某些应用下，默认用英文
+  
+  app_options:
+    # 右键『应用.app』-> 显示包内容 Contents/Info.plist -> BundleIdentifier
+    com.apple.dt.Xcode:
+      ascii_mode: true
+    com.apple.Spotlight:
+      ascii_mode: true
+    com.apple.Terminal:
+      ascii_mode: true
+      no_inline: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+    #
+    com.alfredapp.Alfred:
+      ascii_mode: true
+    com.runningwithcrayons.Alfred-2:
+      ascii_mode: true
+    com.blacktree.Quicksilver:
+      ascii_mode: true
+    #
+    org.vim.MacVim:
+      ascii_mode: true
+      no_inline: true
+    #com.barebones.textwrangler:
+    #  ascii_mode: true
+    #com.macromates.TextMate.preview:
+    #  ascii_mode: true
+    #com.sublimetext.2:
+    #  ascii_mode: true
+    #org.gnu.Aquamacs:
+    #  ascii_mode: true
+    #org.gnu.Emacs:
+    #  ascii_mode: true
+
+  # 输入法面板配色方案
+  
+  style/color_scheme: azure
+
+# Rime 预置配色方案(主题、皮肤)
+# 注：预设的配色方案及代码（指定为 style/color_scheme ）
+# squirrel.yaml
+#   碧水 - aqua
+#   青天 - azure
+#   明月 - luna
+#   墨池 - ink
+#   孤寺 - lost_temple
+#   暗堂 - dark_temple
+#   星际我争霸 - starcraft
+#   谷歌 - google
+#   晒经石 - solarized_rock
+#   简约白 - clean_white (recommended)
+
+# other color schems:
+#   my_clean_white by Chongyu Zhu
+#   apathy by LIANG Hai
+#   light by iHavee
+
+  preset_color_schemes/my_clean_white:
+    
+    author: "Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」"
+    back_color: 0xeeeeee
+    border_height: 6
+    border_width: 6
+    # candidate_format: "%c %@ "
+    candidate_format: "%c\u2005%@\u2005"  # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+    candidate_text_color: 0x000000
+    comment_text_color: 0x808080
+    corner_radius: 6
+    font_point: 16
+    hilited_candidate_back_color: 0xeeeeee
+    hilited_candidate_label_color: 0xa0c98915
+    hilited_candidate_text_color: 0xc98915
+    hilited_text_color: 0x000000
+    horizontal: true
+    label_color: 0x888888
+    label_font_point: 12
+    name: "简约白／Clean White"
+    text_color: 0x808080
+
+  preset_color_schemes/apathy:
+   
+    name: "冷漠 / Apathy"
+    author: "LIANG Hai "
+
+    horizontal: true  # 水平排列
+    inline_preedit: true #单行显示，false双行显示
+    candidate_format: "%c\u2005%@\u2005"  # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+
+    corner_radius: 5  #候选条圆角
+    border_height: 0 
+    border_width: 0
+    back_color: 0xFFFFFF  #候选条背景色
+    font_face: "PingFangSC-Regular,H-SiuNiu"  #候选词字体
+    font_point: 16  #候选字词大小
+    text_color: 0x424242  #高亮选中词颜色
+    label_font_face: "PingFangSC-Light"   #候选词编号字体
+    label_font_point: 12   #候选编号大小
+    hilited_candidate_text_color: 0xEE6E00  #候选文字颜色
+    hilited_candidate_back_color: 0xFFF0E4  #候选文字背景色
+    comment_text_color: 0x999999  #拼音等提示文字颜色
+
+  preset_color_schemes/light:
+
+    name: light
+    author: "iHavee <github.com/iHavee/rime-files>"
+
+    horizontal: true                                   # 候选条横向显示
+    inline_preedit: true                               # 启用内嵌编码模式，候选条首行不显示拼音
+    candidate_format: "%c\u2005%@\u2005"               # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+
+    corner_radius: 5                                   # 候选条圆角半径
+    border_height: 7                                   # 窗口边界高度，大于圆角半径才生效
+    border_width: 7                                    # 窗口边界宽度，大于圆角半径才生效
+    back_color: 0xFFFFFF                               # 候选条背景色
+    border_color: 0xE0B693                             # 边框色
+    font_face: "PingFangSC-Regular"                    # 候选词字体
+    font_point: 18                                     # 预选栏文字字号
+    label_font_face: "PingFangSC-Light"                # 候选词编号字体
+    label_font_point: 14                               # 预选栏编号字号
+    candidate_text_color: 0x000000                     # 预选项文字颜色
+    text_color: 0x000000                               # 拼音行文字颜色，24位色值，16进制，BGR顺序
+    comment_text_color: 0x999999                       # 拼音等提示文字颜色
+    hilited_text_color: 0xFF6941                       # 高亮拼音 (需要开启内嵌编码)
+    hilited_candidate_text_color: 0xFF6941             # 第一候选项文字颜色
+    hilited_candidate_back_color: 0xFFFFFF             # 第一候选项背景色
+    hilited_comment_text_color: 0xFF6941               # 注解文字高亮

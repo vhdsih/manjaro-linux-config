@@ -8,7 +8,7 @@
 ;=====================================================
 
 [colors]
-background = #465c66
+background = #303030
 background-alt = #687190
 foreground-green = #50fa7b
 foreground = #f8f8f2
@@ -43,7 +43,7 @@ screenchange-reload = true
 dpi = 96
 bottom = false
 width = 100%
-height = 24
+height = 28
 background = ${colors.background}
 foreground = ${colors.foreground}
 underline-size = 1
@@ -53,8 +53,8 @@ padding-left = 1
 padding-right = 3
 module-margin-left = 2
 module-margin-right = 2
-font-0 = Microsoft YaHei:Bold:pixelsize=10;1
-font-1 = hack:Bold:pixelsize=10;2
+font-0 = Monaco:Regular:pixelsize=12;2
+font-1 = hack:Regular:pixelsize=10;2
 font-2 = unifont:size=10;2
 font-3 = siji:pixelsize=10;3
 font-4 = FontAwesome:pixelsize=10;2
@@ -63,7 +63,7 @@ font-5 = Icons:pixelsize=10;2
 tray-position = right
 tray-padding = 3
 tray-transparent = false
-tray-background = #465c66
+tray-background = #303030
 modules-left = i3
 modules-center = date
 modules-right = networkspeeddown

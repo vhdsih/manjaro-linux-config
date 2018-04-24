@@ -41,7 +41,6 @@ qt-recordmydesktop
 ranger
 rar
 screenfetch
-shadowsocks-qt5
 smplayer
 tcl
 tcpdump
@@ -64,3 +63,4 @@ xclip
 yaourt
 zeal
 zsh
+flameshot
