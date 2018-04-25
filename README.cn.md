@@ -11,9 +11,13 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
 *注意
 > 所有文件将保存在家目录的.manjaro-linux-config
+> 
 > 当你修改了配置文件
+>
 > 如： .zshrc, .vimrc
+>
 > 你做出的改变也会应用到 .manjaro-linux-config中对应的文件
+> 
 > 你可以保存$HOME/.manjaro-linux-config这个文件夹来保存你的配置
 
 ![ui](preview/ui.png)

@@ -11,11 +11,16 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 ```
 
 * NOTICE
-> all files will be saved into .manjaro-linux-config
-> once you update your files
-> such as .zshrc, .vimrc
-> your change will also be applied in .manjaro-linux-config
-> you can backup this dir to save your configration
+
+> All files will be saved into $HOME/.manjaro-linux-config
+> 
+> Once you update your files
+> 
+> Such as .zshrc, .vimrc
+> 
+> Your change will also be applied in .manjaro-linux-config
+> 
+> You can backup this dir to save your configration
 
 ![ui](preview/ui.png)
 
@@ -72,6 +77,8 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
      F5: check the grammar
 
      F9: run code
+
+     other - please read .vimrc files
 
 4. pacman
 
