@@ -1,4 +1,5 @@
 backup.tar
+*.key
 home
 *log
 *flag

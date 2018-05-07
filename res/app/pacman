@@ -8,7 +8,6 @@ ctags
 dnsutils
 electronic-wechat-git
 evince
-fbreader
 fcitx
 fcitx-configtool
 fcitx-im
@@ -56,7 +55,7 @@ typora
 unrar
 vim
 visual-studio-code-bin
-wireshark-qt
+wireshark-gtk
 wps-office
 wqy-microhei
 xclip
