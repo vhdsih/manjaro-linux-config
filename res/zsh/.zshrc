@@ -54,7 +54,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump web-content last-working-dir pacman colored-man-pages sudo)
+plugins=(git autojump sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -138,46 +138,6 @@ setopt EXTENDED_HISTORY
 setopt AUTO_PUSHD
 #相同的历史路径只保留一个
 setopt PUSHD_IGNORE_DUPS
-
-#在命令前添加空格，不将此命令添加到纪录文件中
-#setopt HIST_IGNORE_SPACE
-#}}}
-
-# #每个目录使用独立的历史纪录{{{
-# cd() {
-# builtin cd "$@"                             # do actual cd
-# fc -W                                       # write current history  file
-# local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
-# if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
-# mkdir -p "$HISTDIR"
-# fi
-# export HISTFILE="$HISTDIR/zhistory"     # set new history file
-# touch $HISTFILE
-# local ohistsize=$HISTSIZE
-# HISTSIZE=0                              # Discard previous dir's history
-# HISTSIZE=$ohistsize                     # Prepare for new dir's history
-# fc -R                                       #read from current histfile
-# }
-# mkdir -p $HOME/.zsh_history$PWD
-# export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
-#
-# function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
-# function convhistory {
-# sort $1 | uniq |
-# sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
-# awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'
-# }
-# #使用 histall 命令查看全部历史纪录
-# function histall { convhistory =(allhistory) |
-# sed '/^.\{20\} *cd/i\\' }
-# #使用 hist 查看当前目录历史纪录
-# function hist { convhistory $HISTFILE }
-#
-# #全部历史纪录 top50
-# function top50 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 50 }
-#
-# #}}}
-
 #杂项 {{{
 #允许在交互模式中使用注释  例如：
 #cmd #这是注释
@@ -408,12 +368,12 @@ export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 # }}
-# cuda for arch linux {{
-# export CUDA_HOME=/opt/cuda
-# export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-# export PATH="$CUDA_HOME/bin:$PATH"
-# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:/usr/lib:/usr/local/lib"
+
+# cuda for ubuntu {{
+export PATH="/usr/local/cuda-9.2/bin:$PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-9.2/lib64"
 # }}
+
 # for rm {{
 # mkdir ~/.delete, when rm somethings ,mv them to here
 if [ ! -d $HOME/.delete ]
@@ -477,12 +437,5 @@ alias buildcpp='clang++ -std=c++11'
 alias runcpp='./a.out'
 #}}
 
-# for sock5{{
-alias startsock='export http_proxy=socks5://127.0.0.1:8123'
-# }}
-eval $(thefuck --alias)
-alias 'pip install'='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
 alias 'opencvrun=g++ `pkg-config --cflags --libs opencv`'
 
-# scroll lock
-xmodmap -e 'add mod3 = Scroll_Lock'
