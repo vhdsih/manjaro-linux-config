@@ -49,15 +49,15 @@ flags = [
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 '-isystem',
-'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1',
+'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1',
 '-isystem',
-'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/x86_64-pc-linux-gnu',
+'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu',
 '-isystem',
-'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/backward',
+'/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward',
 '-isystem',
 '/usr/local/include',
 '-isystem',
-'/usr/bin/../lib/clang/6.0.0/include',
+'/usr/bin/../lib/clang/6.0.1/include',
 ]
 
 

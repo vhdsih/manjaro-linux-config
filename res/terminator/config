@@ -16,14 +16,13 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
     background_darkness = 0.97
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#16afca"
     custom_command = tmux
-    font = Monaco 16
-    foreground_color = "#839496"
+    font = Monaco 13
+    foreground_color = "#e53c00"
     login_shell = True
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#035469:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scrollback_lines = 5000

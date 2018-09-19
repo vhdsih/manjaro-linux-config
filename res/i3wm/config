@@ -1,6 +1,6 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-exec_always --no-startup-id feh --bg-scale "/home/z/Pictures/bg.jpg"
+#
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -50,9 +50,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-bindsym XF86AudioRaiseVolume exec amixer set Master playback 5+
-bindsym XF86AudioLowerVolume exec amixer set Master playback 5-
-bindsym XF86AudioMute exec amixer set Master toggle
 
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -390,7 +387,7 @@ set $i3_color17         #0c0c0c
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id menutray -i
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border      backgr.     text        indic.      child_border
