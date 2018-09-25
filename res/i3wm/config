@@ -21,7 +21,7 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Monaco 16
+font xft:Ubuntu Mono 13
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -33,13 +33,11 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco:Bold -nb '#303030' -nf '#f8f8f2'
+# bindsym $mod+d exec --no-startup-id dmenu_run -fn Monaco:Bold -nb '#565656' -nf '#f8f8f8' -h 36
 #
-# bindsym $mod+d exec --no-startup-id rofi -show run -modi run -location 1 -width 100 \
-#          -lines 2 -line-margin 0 -line-padding 1 \
-#          -separator-style none -font "mono 10" -columns 9 -bw 0 \
-#          -hide-scrollbar \
-#          -kb-row-select "Tab" -kb-row-tab ""
+bindsym $mod+d exec --no-startup-id rofi -show run -modi run -location 1 -width 100 \
+         -lines 2 -line-margin 1 -line-padding 1 \
+         -separator-style none -font "Ubuntu mono 16" -columns 5 -bw 0 \
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -385,6 +383,7 @@ set $i3_color17         #0c0c0c
 #     }
 # }
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec --no-startup-id xfce4-panel --disable-wm-check
 exec --no-startup-id menutray -i
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle

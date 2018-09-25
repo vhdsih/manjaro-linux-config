@@ -8,10 +8,10 @@
 ;=====================================================
 
 [colors]
-background = #303030
+background = #30303022
 background-alt = #687190
 foreground-green = #50fa7b
-foreground = #f8f8f2
+foreground = #f8f8f8
 foreground-alt = #6272a4
 primary = #ffb52a
 secondary = #e60053

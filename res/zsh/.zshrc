@@ -370,8 +370,8 @@ export PATH=${JAVA_HOME}/bin:$PATH
 # }}
 
 # cuda for ubuntu {{
-export PATH="/usr/local/cuda-9.2/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-9.2/lib64"
+# export PATH="/usr/local/cuda-9.2/bin:$PATH"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-9.2/lib64"
 # }}
 
 # for rm {{
