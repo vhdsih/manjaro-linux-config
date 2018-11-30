@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="tjkirch_mod"
 # Uncomment the following line to use case-sensitive completion.
-ZSH_THEME="avit"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="aussiegeek"
 # ZSH_THEME="fino-time"
 # CASE_SENSITIVE="true"
@@ -437,5 +437,11 @@ alias buildcpp='clang++ -std=c++11'
 alias runcpp='./a.out'
 #}}
 
-alias 'opencvrun=g++ `pkg-config --cflags --libs opencv`'
+alias 'opencv'='g++ `pkg-config --cflags --libs opencv`'
+
+alias 'anaconda'='source /opt/anaconda/bin/activate root'
+alias 'dis-anaconda'='source /opt/anaconda/bin/deactivate root'
+alias 'vps'='ssh -p 28173 root@176.122.129.96'
+
+PATH=$PATH:$HOME/Bin:/home/z/.local/bin
 

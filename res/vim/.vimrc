@@ -2,40 +2,20 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#rc()
 " add plugin at there
 Plugin 'VundleVim/Vundle.vim'
-" airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
-Bundle 'ShowTrailingWhitespace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'docunext/closetag.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/taglist.vim'
-
-" color
-Plugin 'dracula/vim'
-
 " plugin end here
 call vundle#end()
 filetype plugin indent on
 " }}
-
 
 " basic {{
 set number
@@ -76,18 +56,10 @@ nmap <leader>p "+p
 nmap <leader>l :noh<CR>
 "buffer
 nmap <leader><Tab> :bn<CR>
-" tarbar
-nmap <leader>tb :Tagbar<CR>
-" settings for nerdtree
-nmap <leader>nt :NERDTreeToggle<CR>
-"strip all trailing whitespace in the current file
-nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }}
 "
-map <F2> :Tlist<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-map <F6> :CtrlPFunky<CR>
 map <F9> :call CompileRun()<CR>
 
 " hightlight
@@ -118,47 +90,11 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd StdinReadPre * let s:std_in=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
 " settings for IndentGuides
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=1
 let g:indent_guides_guide_size=1
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=1
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
-" hi IndentGuidesOdd guibg=red ctermbg=1
-" hi IndentGuidesEven guibg=green ctermbg=1
 
-" settings for nerdcommenter
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" for ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<leader>n"
-let g:UltiSnipsJumpBackwardTrigger="<leader>p"
 " syntastic
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
@@ -186,16 +122,6 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
-
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_funky_syntax_highlight = 1
-
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-
-
 " compile and run {{
 func! CompileRun()
     exec "w"
@@ -205,9 +131,6 @@ func! CompileRun()
     elseif &filetype == 'cpp'
         exec "!g++ -std=c++11 % -o %<"
         exec "! ./%<"
-    elseif &filetype == 'java'
-        exec "!javac %"
-        exec "!java %<"
     elseif &filetype == 'sh'
         :!./%
     elseif &filetype == 'python'
