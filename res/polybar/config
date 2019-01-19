@@ -43,27 +43,27 @@ screenchange-reload = true
 dpi = 96
 bottom = false
 width = 100%
-height = 28
+height = 36
 background = ${colors.background}
 foreground = ${colors.foreground}
-underline-size = 1
+underline-size = 2
 underline-color = #00f
 spacing = 1
 padding-left = 1
 padding-right = 3
 module-margin-left = 2
 module-margin-right = 2
-font-0 = Monaco:Regular:pixelsize=12;2
-font-1 = hack:Regular:pixelsize=10;2
-font-2 = unifont:size=10;2
-font-3 = siji:pixelsize=10;3
-font-4 = FontAwesome:pixelsize=10;2
-font-5 = Icons:pixelsize=10;2
+font-0 = Monaco:Regular:pixelsize=16;2
+font-1 = hack:Regular:pixelsize=16;2
+font-2 = unifont:size=16;2
+font-3 = siji:pixelsize=16;3
+font-4 = FontAwesome:pixelsize=16;2
+font-5 = Icons:pixelsize=16;2
 
 tray-position = right
-tray-padding = 3
+tray-padding = 4
 tray-transparent = false
-tray-background = #303030
+tray-background = #30303022
 modules-left = i3
 modules-center = date
 modules-right = networkspeeddown
@@ -131,7 +131,7 @@ format-connected-prefix-foreground = #5b
 
 [module/networkspeeddown]
 type = internal/network
-interface = wlp2s0
+interface = wlp3s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix =
