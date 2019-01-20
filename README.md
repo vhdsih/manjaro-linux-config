@@ -28,7 +28,7 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
 1. applications
 
-   you can add or delete your applications at ~/.manjaro-linux-config/res/app/{pacman, pacman-i3wm, yaourt, yaourt-i3wm}.
+   you can add or delete your applications at ~/.manjaro-linux-config/res/app/{pacman, pacman-i3wm, yay, yay-i3wm}.
 
    applications in *-i3wm wil be installed if you select operation A above.
 

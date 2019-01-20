@@ -17,14 +17,14 @@ function backup_files() {
 }
 
 function backup_file() {
-    echo Dealing $line ...
-    if [ -e $file.bak -a -e $file ]; then
-        echo Remove $file.bak
-        /usr/bin/rm -rf $file.bak
+    echo Dealing $1 ...
+    if [ -e $1.bak -a -e $1 ]; then
+        echo Remove $1.bak
+        /usr/bin/rm -rf $1.bak
     fi
-    if [ -e $file ]; then
-        echo Move $file to $file.bak
-        /usr/bin/mv $file $file.bak
+    if [ -e $1 ]; then
+        echo Move $1 to $1.bak
+        /usr/bin/mv $1 $1.bak
     fi
 }
 

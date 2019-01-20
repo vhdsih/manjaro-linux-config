@@ -10,7 +10,7 @@ relative_location=$(cd "$(dirname "$0")"; pwd)
 LOG=$relative_location/../log
 
 # load functions
-. ./utils.sh
+. $relative_location/utils.sh
 
 # install software
 install_software() {
