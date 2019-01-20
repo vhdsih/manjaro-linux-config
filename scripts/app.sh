@@ -3,12 +3,12 @@
 exec_location=`pwd`
 relative_location=`dirname $0`
 
-pacman_APP=$relative_location/pacman
-yaourt_APP=$relative_location/yaourt
+pacman_APP=$relative_location/../res/app/pacman
+aur_APP=$relative_location/../res/app/aur
 
-pacman_APP_i3wm=$relative_location/pacman-i3wm
-yaourt_APP_i3wm=$relative_location/yaourt-i3wm
-LOG=$relative_location/../../install.log
+pacman_APP_i3wm=$relative_location/../res/app/pacman-i3wm
+aur_APP_i3wm=$relative_location/../res/app/aur-i3wm
+LOG=$relative_location/../app.log
 
 ## print log
 print_log() {
@@ -71,10 +71,10 @@ echo > $LOG
 
 install_software $pacman_APP pacman sudo \-\-needed
 
-install_software $yaourt_APP yaourt
+install_software $aur_APP yay
 
 if [ -f "i3wm.flag" ]; then
     echo "Install Applications For i3wm"
     install_software $pacman_APP_i3wm pacman sudo \-\-needed
-    install_software $yaourt_APP_i3wm yaourt
+    install_software $aur_APP_i3wm yay
 fi

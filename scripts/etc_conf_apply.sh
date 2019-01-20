@@ -2,7 +2,7 @@
 
 relative_location=`dirname $0`
 
-dir=$relative_location
+dir=$relative_location/../res/etc/
 
 files=(
 /etc/pacman.conf

@@ -1,72 +1,56 @@
 #!/bin/bash
 
-exec_location=`pwd`
-relative_location=$(cd "$(dirname "$0")"; pwd)
+# created by dongchangzhang
 
+# 执行该脚本时所在路径
+exec_location=`pwd`
+# 脚本所在的路径
+relative_location=$(cd "$(dirname "$0")"; pwd)
+# log file
 LOG=$relative_location/../log
 
-# print log
-print_log() {
-    echo -e  "\033[0;31;1m==> $1\033[0m"
-    echo $1 >> $LOG
-}
-# check software
-check_software() {
-    echo "-> checking app $1..."
-    which $1 >> /dev/null
-    if [ $? = 0 ]; then
-        echo "-> $1 had been installed"
-    else
-        echo "-> $1 has not been installed, installing now"
-        sudo $2 $1
-    fi
-}
-# update system
-update_system() {
-    clear
-    print_log "update system..."
-    check_software wget "pacman -S --noconfirm"
-    sudo pacman -Syyu --noconfirm
-    print_log "done"
-}
+# load functions
+. ./utils.sh
+
 # install software
 install_software() {
     clear
-    print_log 'install software...'
-    chmod +x $relative_location/../res/app/install.sh
-    $relative_location/../res/app/install.sh
-    print_log "done"
+    print_log 'install software...' $LOG
+    chmod +x $relative_location/app.sh
+    $relative_location/app.sh
+    print_log "done" $LOG
 }
+
 # config etc files
 config_etc() {
     clear
-    print_log "config etc..."
-    chmod +x $relative_location/../res/etc/etc_conf_apply.sh
-    $relative_location/../res/etc/etc_conf_apply.sh
-    print_log "done"
-
+    print_log "config etc..." $LOG
+    chmod +x $relative_location/etc_conf_apply.sh
+    $relative_location/etc_conf_apply.sh
+    print_log "done" $LOG
 }
+
 # config ssh for github
 config_ssh() {
     clear
-    print_log "config ssh for github..."
-    chmod +x $relative_location/../res/ssh/ssh.sh
-    $relative_location/../res/ssh/ssh.sh
-    print_log "done"
-
+    print_log "config ssh for github..." $LOG
+    chmod +x $relative_location/ssh.sh
+    $relative_location/ssh.sh
+    print_log "done" $LOG
 }
+
 # config mirrors list
 config_mirrors() {
     clear
-    print_log "config mirrors list"
+    print_log "config mirrors list" $LOG
     sudo pacman-mirrors -c China
-    print_log "done"
+    print_log "done" $LOG
 
 }
 # config vim
 config_vim() {
     clear
-    print_log "do config for vim..."
+    print_log "do config for vim..." $LOG
     # vim had been installed?
     check_software vim 'pacman -S --noconfirm'
     # clang had been installed?
@@ -75,108 +59,82 @@ config_vim() {
     check_software cmake 'pacman -S --noconfirm'
     # powerline-fonts
     check_software powerline-fonts 'pacman -S --noconfirm'
-    # for .vimrc
-    if [ -f "$HOME/.vimrc" ]; then
-        print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"
-        mv $HOME/.vimrc $HOME/.vimrc.bak
-    fi
-    # for .vim
-    if [  -d "$HOME/.vim" ]; then
-        print_log "mv $HOME/.vim to $HOME/.vim.bak"
-        mv $HOME/.vim $HOME/.vim.bak
-    fi
-    # do config
-    ln -sfn $relative_location/../res/vim/.vimrc $HOME/
-    ln -sfn $relative_location/../res/vim/.ycm_extra_conf.py $HOME/
+    # backup
+    backup_file $HOME/.vimrc
+    backup_file $HOME/.vim
+    # link
+    link $relative_location/../res/vim/.vimrc $HOME/
+    link $relative_location/../res/vim/.ycm_extra_conf.py $HOME/
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    ln -sfn -r $relative_location/../res/vim/colors ~/.vim/
+    link $relative_location/../res/vim/colors $HOME/.vim/colors
     vim +PluginInstall +qall
     $HOME/.vim/bundle/YouCompleteMe/install.sh  --clang-completer --system-libclang
-    print_log "done"
+    print_log "done" $LOG
 }
+
 # config zsh
 config_zsh() {
     clear
-    print_log "do config for zsh..."
+    print_log "do config for zsh..." $LOG
     check_software zsh 'pacman -S --noconfirm'
     check_software autojump 'pacman -S --noconfirm'
     check_software powerline-fonts 'pacman -S --noconfirm'
-    # for .zshrc
-    if [ -f "$HOME/.zshrc" ]; then
-        print_log "mv $HOME/.zshrc to $HOME/.zshrc.bak"
-        mv $HOME/.zshrc $HOME/.zshrc.bak
-    fi
+    backup_file $HOME/.zshrc
     # oh my zsh
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-    ln -sfn $relative_location/../res/zsh/.zshrc ~/.zshrc
+    link $relative_location/../res/zsh/.zshrc $HOME/.zshrc
     chsh -s /bin/zsh
 
     if [ $? = 0 ]
-    then print_log "chsh successfully"
+    then print_log "chsh successfully" $LOG
     else
-        print_log "error when chsh"
+        print_log "error when chsh" $LOG
     fi
-    print_log "done"
+    print_log "done" $LOG
 }
 
-# vscode
-config_vscode() {
-    print_log "do for vscode"
-    mkdir -p $HOME/.config/Code/User/
-    cp $relative_location/../res/code/* $HOME/.config/Code/User/
-    print_log "done"
-}
 # i3wm
 config_i3() {
-    print_log "do for i3wm"
-    # for .i3
-    if [ -d "$HOME/.i3" ]; then
-        print_log "mv $HOME/.i3 to $HOME/.i3.bak"
-        mv $HOME/.i3 $HOME/.i3.bak
-    fi
-    # for polybar
-    if [  -d "$HOME/.config/polybar" ]; then
-        print_log "mv $HOME/.config/polybar to $HOME/.config/polybar.bak"
-        mv $HOME/.config/polybar  $HOME/.config/polybar.bak
-    fi
+    print_log "do for i3wm" $LOG
+    backup_file $HOME/.i3
+    backup_file $HOME/.config/polybar
     
-    ln -sfn $relative_location/../res/i3wm $HOME/.i3
-    ln -sfn $relative_location/../res/polybar $HOME/.config/polybar
-    echo "done"
+    link $relative_location/../res/i3wm $HOME/.i3
+    link $relative_location/../res/polybar $HOME/.config/polybar
+    print_log "done" $LOG
 }
 
 # install i3wm
 install_i3() {
-    print_log "install i3wm"
+    print_log "install i3wm" $LOG
     # for .i3
-    if [ -d "$HOME/.config/i3" ]; then
-        print_log "mv $HOME/.config/i3 to $HOME/.config/i3.bak"
-        mv $HOME/.config/i3 $HOME/.config/i3.bak
-    fi
+    backup_file $HOME/.config/i3
     # for polybar
-    if [  -d "$HOME/.config/polybar" ]; then
-        print_log "mv $HOME/.config/polybar to $HOME/.config/polybar.bak"
-        mv $HOME/.config/polybar  $HOME/.config/polybar.bak
-    fi
+    backup_file $HOME/.config/polybar
     $relative_location/install-i3wm.sh
-    ln -sfn $relative_location/../res/i3wm $HOME/.config/i3
-    ln -sfn $relative_location/../res/polybar $HOME/.config/polybar
-    echo "done"
+    link $relative_location/../res/i3wm $HOME/.config/i3
+    link $relative_location/../res/polybar $HOME/.config/polybar
+    # fonts for polybar
+    sudo cp -r $relative_location/../res/fonts /usr/share/fonts/polybar-fonts
+    cd /usr/share/fonts/polybar-fonts
+    sudo chmod 644 *
+    sudo mkfontscale
+    sudo mkfontdir
+    sudo fc-cache -fv
+    cd $exec_location
+    print_log "done" $LOG
 }
+
 config_terminator() {
-  print_log "do for terminator"
-  # for terminator
-  if [  -d "$HOME/.config/terminator" ]; then
-      print_log "mv $HOME/.config/terminator to $HOME/.config/terminator.bak"
-      mv $HOME/.config/terminator  $HOME/.config/terminator.bak
-  fi
-  ln -sfn $relative_location/../res/terminator $HOME/.config/terminator
-  echo "done"
+  print_log "do for terminator" $LOG
+  backup_file $HOME/.config/terminator
+  link $relative_location/../res/terminator $HOME/.config/terminator
+  print_log "done" $LOG
   
 }
 
 config_fonts() {
-  print_log "do for fonts"
+  print_log "do for fonts" $LOG
   now=`pwd`
   git clone https://github.com/dongchangzhang/fonts
   sudo cp -r fonts/wf /usr/share/fonts/
@@ -221,7 +179,7 @@ then
     touch $relative_location/../i3wm.flag
     config_i3
     echo 'wait 3s please...'
-    sleep 3
+    sleep i3
   fi
 
   if [[ $GUI == *"1"* ]]

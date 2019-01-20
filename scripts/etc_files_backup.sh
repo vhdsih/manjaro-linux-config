@@ -4,7 +4,8 @@ exec_location=`pwd`
 
 relative_location=`dirname $0`
 
-backfile=$relative_location/pacman.conf
+backfile=$relative_location/../res/etc/pacman.conf
+
 backup_backup() {
     if [ -f $backfile ]
     then

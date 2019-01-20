@@ -5,7 +5,7 @@ manjaro-linux-config是一个系统配置脚本，其中包括对i3wm、polybar�
 ##### 安装
 ```shell
 # 在终端中运行下面的命令
-sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/scripts/setup.sh)"
 # 之后在弹出的UI窗口总选择你需要的动作
 ```
 

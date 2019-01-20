@@ -6,7 +6,7 @@ manjaro-linux-config is a tool for configuring manjaro linux（including i3wm, t
 
 ```shell
 # run this cmd in your terminal
-sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/master/scripts/setup.sh)"
 # then select your operation as follows
 ```
 
@@ -84,21 +84,11 @@ sh -c "$(curl -fsSL https://raw.github.com/dongchangzhang/manjaro-linux-config/m
 
    add archlinuxcn, use pacman-mirror change the source.
 
-5. kde shortcut
-
-   load the shortcuts from file ~/.manjaro-linux-config/res/kde
-
-   * Win + E: open dolphin
-   * Ctrl + Alt + T: open konsole
-   * Win + D: return to desktop
-   * Win + W: show all application
-   * Win + S: show all desktop
-   * Win + 1/2/3/4 : shift to 1/2/3/4 desktop
-   * Win + Space / Alt + Space: open search;
-
-6. i3wm
+5. i3wm
 
    use polybar rather than i3 status bar.
+
+   ![polybar](preview/polybar.png)
 
    ![i3wm](preview/i3wm.png)
 
