@@ -1,4 +1,6 @@
-# i3 config file (v4)
+# -- Vhdsih -- 
+# update on 2019/06
+# base on i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -358,19 +360,19 @@ set $i3_color15         #000000
 set $i3_color16         #ffffff
 set $i3_color17         #0c0c0c
 
-# # Start i3bar to display a workspace bar (plus the system information i3status if available)
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
 # bar {
 #     i3bar_command i3bar
 #     status_command i3status
 #     position bottom
 #
-# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-# #	tray_output primary
-# #	tray_output eDP1
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#	tray_output primary
+#	tray_output eDP1
 #
 #     bindsym button4 nop
 #     bindsym button5 nop
-#     font xft:Noto Sans 10.5
+#     font xft:Ubuntu 10
 #     strip_workspace_numbers yes
 #
 #     colors {
@@ -378,19 +380,19 @@ set $i3_color17         #0c0c0c
 #         statusline $i3_text
 #         separator  $i3_separator
 #
-# #                           border     backgr.        text
+#                           border     backgr.        text
 #         focused_workspace   $i3_color1 $i3_color4     $i3_text
 #         active_workspace    $i3_color2 $i3_color3     $i3_color5
 #         inactive_workspace  $i3_color2 $i3_color3     $i3_color6
 #         binding_mode        $i3_color8 $i3_background $i3_text
 #         urgent_workspace    $i3_color4 $i3_color5     $i3_color7
 #     }
-# }
+#}
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec --no-startup-id xfce4-panel --disable-wm-check
 exec --no-startup-id menutray -i
 # hide/unhide i3status bar
-# bindsym $mod+m bar mode toggle
+bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border      backgr.     text        indic.      child_border

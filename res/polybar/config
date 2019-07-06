@@ -87,7 +87,7 @@ blue-gray = #546e7a
 
 [bar/main]
 width = 100%
-height = 24
+height = 34
 offset-x = 2%
 offset-y = 2%
 bottom = false
@@ -99,8 +99,8 @@ foreground = ${color.fg}
 
 ;==========================================================
 
-font-0 = "Fantasque Sans Mono:pixelsize=13;3"
-font-1 = "Iosevka Nerd Font:pixelsize=13;3"
+font-0 = "Fantasque Sans Mono:pixelsize=14;3"
+font-1 = "Iosevka Nerd Font:pixelsize=14;3"
 
 ;==========================================================
 
