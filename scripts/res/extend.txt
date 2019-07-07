@@ -1,0 +1,5 @@
+rofi
+otf-fantasque-sans-mono
+polybar
+siji-git
+networkmanager-dmenu-git
