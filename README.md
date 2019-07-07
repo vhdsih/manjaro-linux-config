@@ -18,7 +18,7 @@ Install
 
 
 Final
-![final](preview/mainWinow.png)
+![final](preview/mainWindow.png)
 
 
 
